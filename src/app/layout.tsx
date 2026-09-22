@@ -17,6 +17,9 @@ import Header from "@/components/Header";
 export const metadata: Metadata = {
   title: "OXFURY DESIGNS",
   description: "Free HyperOS themes designed by OXFURY DESIGNS with a focus on clean visuals, unique details, and everyday usability.",
+  other: {
+    "735322ea620050b26b36a7ff87670ae04da040a3": "735322ea620050b26b36a7ff87670ae04da040a3",
+  },
 };
 
 export default function RootLayout({
