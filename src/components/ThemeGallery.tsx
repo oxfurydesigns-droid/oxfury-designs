@@ -100,9 +100,9 @@ export default function ThemeGallery({ screenshots, themeName }: ThemeGalleryPro
         </button>
       </div>
 
-      <div className="flex flex-col gap-4 md:flex-row md:h-[450px]">
+      <div className="flex flex-row gap-3 md:gap-4 h-[60vh] min-h-[400px] md:h-[450px]">
         {/* Large Main Viewport */}
-        <div className="group relative flex aspect-[9/16] w-full min-h-[400px] max-h-[60vh] items-center justify-center overflow-hidden rounded-2xl bg-gray-100 shadow-sm ring-1 ring-gray-200 transition-all duration-300 dark:bg-gray-900 dark:ring-gray-800 md:h-full md:min-h-0 md:max-h-none md:flex-1 md:aspect-auto">
+        <div className="group relative flex flex-1 h-full items-center justify-center overflow-hidden rounded-2xl bg-gray-100 shadow-sm ring-1 ring-gray-200 transition-all duration-300 dark:bg-gray-900 dark:ring-gray-800">
           <button
             onClick={() => openFullscreen(selectedIndex)}
             className="absolute inset-0 z-0 h-full w-full outline-none"
@@ -128,15 +128,15 @@ export default function ThemeGallery({ screenshots, themeName }: ThemeGalleryPro
         {/* Thumbnails Section */}
         <div 
           ref={thumbnailContainerRef}
-          className="scrollbar-hide flex flex-row gap-3 overflow-x-auto pt-1 pb-2 md:flex-col md:w-20 md:overflow-y-auto md:overflow-x-hidden md:pr-1 md:pb-0 md:pt-0"
+          className="scrollbar-hide flex flex-col w-16 md:w-20 gap-3 overflow-y-auto overflow-x-hidden pr-1 pb-1"
         >
           {screenshots.map((src, idx) => (
             <button
               key={idx}
               onClick={() => setSelectedIndex(idx)}
-              className={`relative flex-shrink-0 overflow-hidden rounded-xl bg-gray-200 transition-all dark:bg-gray-800 aspect-[9/16] h-28 sm:h-32 md:h-auto md:w-full ${
+              className={`relative flex-shrink-0 overflow-hidden rounded-xl bg-gray-200 transition-all dark:bg-gray-800 aspect-[9/16] w-full ${
                 selectedIndex === idx
-                  ? "ring-2 ring-blue-500 ring-offset-2 ring-offset-gray-50 opacity-100 dark:ring-blue-400 dark:ring-offset-gray-900/30 md:scale-95"
+                  ? "ring-2 ring-blue-500 ring-offset-2 ring-offset-gray-50 opacity-100 dark:ring-blue-400 dark:ring-offset-gray-900/30 scale-95"
                   : "ring-1 ring-gray-200 opacity-60 hover:opacity-100 dark:ring-gray-700"
               }`}
               aria-label={`Select screenshot ${idx + 1}`}
