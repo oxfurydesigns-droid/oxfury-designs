@@ -18,7 +18,7 @@ export default function ThemeGallery({ screenshots, themeName }: ThemeGalleryPro
   useEffect(() => {
     const handleKeyDown = (e: KeyboardEvent) => {
       if (isFullscreen) {
-        if (e.key === "Escape") setIsFullscreen(false);
+        if (e.key === "Escape") closeFullscreen();
         if (e.key === "ArrowRight") handleNextLightbox();
         if (e.key === "ArrowLeft") handlePrevLightbox();
       } else if (isViewAllOpen) {
@@ -29,6 +29,17 @@ export default function ThemeGallery({ screenshots, themeName }: ThemeGalleryPro
     window.addEventListener("keydown", handleKeyDown);
     return () => window.removeEventListener("keydown", handleKeyDown);
   }, [isFullscreen, isViewAllOpen, selectedIndex, screenshots.length]);
+
+  // Handle browser back button (popstate)
+  useEffect(() => {
+    const handlePopState = () => {
+      if (isFullscreen) {
+        setIsFullscreen(false);
+      }
+    };
+    window.addEventListener("popstate", handlePopState);
+    return () => window.removeEventListener("popstate", handlePopState);
+  }, [isFullscreen]);
 
   // Lock body scroll when any modal is open
   useEffect(() => {
@@ -52,8 +63,18 @@ export default function ThemeGallery({ screenshots, themeName }: ThemeGalleryPro
 
   const openFullscreen = (index?: number) => {
     if (index !== undefined) setSelectedIndex(index);
-    setIsFullscreen(true);
+    if (!isFullscreen) {
+      window.history.pushState({ lightbox: true }, "");
+      setIsFullscreen(true);
+    }
     setIsViewAllOpen(false);
+  };
+
+  const closeFullscreen = () => {
+    setIsFullscreen(false);
+    if (window.history.state && window.history.state.lightbox) {
+      window.history.back();
+    }
   };
 
   // Keep thumbnail in view in the scrolling row/column
@@ -189,7 +210,7 @@ export default function ThemeGallery({ screenshots, themeName }: ThemeGalleryPro
               {selectedIndex + 1} / {screenshots.length}
             </div>
             <button
-              onClick={() => setIsFullscreen(false)}
+              onClick={closeFullscreen}
               className="rounded-full bg-white/10 p-2 text-white transition-colors hover:bg-white/20"
               aria-label="Close fullscreen"
             >
