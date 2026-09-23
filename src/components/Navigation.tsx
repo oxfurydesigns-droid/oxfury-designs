@@ -8,15 +8,15 @@ interface NavigationProps {
 
 export default function Navigation({ activeTab, onTabChange }: NavigationProps) {
   return (
-    <nav className="flex space-x-2 overflow-x-auto pb-4 scrollbar-hide">
+    <nav className="inline-flex rounded-lg bg-gray-100/50 p-1 dark:bg-[#111113] ring-1 ring-gray-200/50 dark:ring-[#1a1b1e]">
       {TABS.map((tab) => (
         <button
           key={tab}
           onClick={() => onTabChange(tab)}
-          className={`whitespace-nowrap rounded-full px-5 py-2 text-sm font-medium transition-colors ${
+          className={`whitespace-nowrap rounded-md px-4 py-1.5 text-xs sm:text-sm font-medium transition-all ${
             activeTab === tab
-              ? 'bg-black text-white dark:bg-white dark:text-black'
-              : 'bg-gray-100 text-gray-600 hover:bg-gray-200 dark:bg-gray-800 dark:text-gray-400 dark:hover:bg-gray-700'
+              ? 'bg-white text-gray-900 shadow-sm ring-1 ring-gray-200/50 dark:bg-[#1f2024] dark:text-gray-100 dark:ring-[#2a2b30]'
+              : 'text-gray-500 hover:text-gray-700 dark:text-gray-400 dark:hover:text-gray-300'
           }`}
         >
           {tab}

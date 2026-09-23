@@ -3,19 +3,19 @@ import Image from 'next/image';
 
 export default function Header() {
   return (
-    <header className="sticky top-0 z-50 w-full border-b border-gray-200 bg-white/80 backdrop-blur-md dark:border-gray-800 dark:bg-gray-950/80">
-      <div className="container mx-auto flex h-16 items-center px-4">
+    <header className="sticky top-0 z-50 w-full border-b border-gray-100 bg-white/90 backdrop-blur-md dark:border-[#1a1b1e] dark:bg-[#0a0a0b]/90">
+      <div className="container mx-auto flex h-14 items-center px-4">
         <Link href="/" className="flex items-center space-x-3">
-          <div className="relative flex h-8 w-8 items-center justify-center overflow-hidden rounded-lg bg-black dark:bg-white">
+          <div className="relative flex h-7 w-7 items-center justify-center overflow-hidden rounded-md bg-black dark:bg-white ring-1 ring-gray-200 dark:ring-gray-800">
             <Image 
               src="/logo.jpg" 
-              alt="OXFURY DESIGNS Logo" 
+              alt="OX×MS DESIGNS Logo" 
               fill
               className="object-cover"
             />
           </div>
-          <span className="text-xl font-bold tracking-tight text-gray-900 dark:text-gray-100">
-            OXFURY DESIGNS
+          <span className="text-lg font-bold tracking-tight text-gray-900 dark:text-gray-100">
+            OX×MS DESIGNS
           </span>
         </Link>
       </div>

@@ -12,17 +12,24 @@ export default function Home() {
   const filteredThemes = themes.filter((theme) => theme.category === activeTab);
 
   return (
-    <div className="container mx-auto px-4 py-8">
-      <div className="mb-8">
-        <h1 className="text-3xl font-bold tracking-tight text-gray-900 dark:text-gray-100 md:text-5xl">
-          Themes crafted by OXFURY DESIGNS
+    <div className="container mx-auto px-4 py-6 md:py-10">
+      {/* Hero Section */}
+      <div className="mb-10 max-w-3xl">
+        <h1 className="text-sm font-semibold tracking-widest text-gray-500 dark:text-gray-400 mb-3">
+          OX×MS DESIGNS
         </h1>
-        <p className="mt-4 max-w-2xl text-lg text-gray-600 dark:text-gray-400">
-          Free HyperOS themes designed by OXFURY DESIGNS with a focus on clean visuals, unique details, and everyday usability.
+        <h2 className="text-3xl font-extrabold tracking-tight text-gray-900 dark:text-gray-100 sm:text-4xl md:text-5xl lg:text-6xl text-balance">
+          HyperOS themes, redesigned.
+        </h2>
+        <p className="mt-4 max-w-2xl text-base sm:text-lg text-gray-600 dark:text-gray-400">
+          Original HyperOS themes, custom interfaces, and detailed system designs.
         </p>
       </div>
 
-      <div className="mb-8 border-b border-gray-200 dark:border-gray-800">
+      <div className="mb-6 flex flex-col sm:flex-row sm:items-center sm:justify-between border-b border-gray-100 dark:border-[#1a1b1e] pb-4 gap-4">
+        <h3 className="text-sm font-bold tracking-wider text-gray-900 dark:text-gray-100 uppercase">
+          Featured Themes
+        </h3>
         <Navigation activeTab={activeTab} onTabChange={setActiveTab} />
       </div>
 

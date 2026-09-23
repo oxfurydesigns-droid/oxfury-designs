@@ -18,18 +18,18 @@ export default function ThemeCard({ theme }: ThemeCardProps) {
     : theme.compatibility.join(' • ');
 
   return (
-    <Link href={`/theme/${theme.slug}`} className="group flex flex-col overflow-hidden rounded-2xl bg-white shadow-sm ring-1 ring-gray-100 transition-all hover:shadow-md dark:bg-gray-900 dark:ring-gray-800">
-      <div className="relative aspect-[2/1] w-full overflow-hidden bg-gray-100 dark:bg-gray-800">
+    <Link href={`/theme/${theme.slug}`} className="group flex flex-col overflow-hidden rounded-[20px] bg-white shadow-sm ring-1 ring-gray-200/60 transition-all hover:shadow-md hover:ring-gray-300 dark:bg-[#111113] dark:ring-[#1a1b1e] dark:hover:ring-[#2a2b30]">
+      <div className="relative aspect-[6000/4171] w-full overflow-hidden bg-gray-50 dark:bg-[#0a0a0b]">
         <Image
           src={theme.thumbnail}
           alt={theme.name}
           fill
-          className="object-cover transition-transform duration-300 group-hover:scale-105"
+          className="object-cover transition-transform duration-500 group-hover:scale-[1.02]"
         />
       </div>
-      <div className="flex flex-col p-4">
-        <h3 className="text-lg font-semibold text-gray-900 dark:text-gray-100">{theme.name}</h3>
-        <p className="mt-1 text-sm font-medium text-gray-500 dark:text-gray-400">
+      <div className="flex flex-col p-5">
+        <h3 className="text-xl font-bold tracking-tight text-gray-900 dark:text-gray-100">{theme.name}</h3>
+        <p className="mt-1.5 text-xs font-semibold tracking-wider uppercase text-gray-500 dark:text-gray-400">
           {formattedCompatibility}
         </p>
       </div>
