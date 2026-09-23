@@ -35,7 +35,7 @@ export default async function ThemePage({ params }: ThemePageProps) {
         </Link>
       </div>
       
-      <AdBanner />
+      <AdBanner zoneId="7454221" />
       
       <div className="mt-8">
         <ThemeDetail theme={theme} />
