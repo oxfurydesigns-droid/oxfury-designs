@@ -42,7 +42,7 @@ export default async function ThemePage({ params }: ThemePageProps) {
       </div>
 
       <div className="mt-12">
-        <AdBanner zoneId="7454221" />
+        <AdBanner zoneId="bottom" />
       </div>
     </div>
   );
