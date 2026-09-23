@@ -44,7 +44,7 @@ export default function Footer() {
             &copy; 2026 OX×MS DESIGNS
           </p>
           <Link 
-            href="#" 
+            href="/privacy-policy" 
             className="text-xs text-gray-500 transition-colors duration-200 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-100"
           >
             Privacy Policy
