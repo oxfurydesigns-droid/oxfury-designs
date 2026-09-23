@@ -113,7 +113,7 @@ export default function VersionHistory({ currentVersion, previousVersions }: Ver
                               href={ver.downloads.mtz}
                               target="_blank"
                               rel="noopener noreferrer"
-                              className="inline-flex flex-1 sm:flex-none items-center justify-center rounded-xl bg-gray-100 px-6 py-3 text-sm font-semibold text-gray-900 shadow-sm ring-1 ring-inset ring-gray-200 transition-all hover:bg-gray-200 dark:bg-gray-800 dark:text-gray-100 dark:ring-gray-700 dark:hover:bg-gray-700"
+                              className="inline-flex flex-1 sm:flex-none items-center justify-center rounded-xl bg-white px-6 py-3 text-sm font-semibold text-gray-900 shadow-sm ring-1 ring-inset ring-gray-200 transition-all hover:bg-gray-50 dark:bg-white dark:text-gray-900 dark:hover:bg-gray-100"
                             >
                               Download MTZ
                             </a>
@@ -123,7 +123,7 @@ export default function VersionHistory({ currentVersion, previousVersions }: Ver
                               href={ver.downloads.backup}
                               target="_blank"
                               rel="noopener noreferrer"
-                              className="inline-flex flex-1 sm:flex-none items-center justify-center rounded-xl bg-gray-100 px-6 py-3 text-sm font-semibold text-gray-900 shadow-sm ring-1 ring-inset ring-gray-200 transition-all hover:bg-gray-200 dark:bg-gray-800 dark:text-gray-100 dark:ring-gray-700 dark:hover:bg-gray-700"
+                              className="inline-flex flex-1 sm:flex-none items-center justify-center rounded-xl bg-white px-6 py-3 text-sm font-semibold text-gray-900 shadow-sm ring-1 ring-inset ring-gray-200 transition-all hover:bg-gray-50 dark:bg-white dark:text-gray-900 dark:hover:bg-gray-100"
                             >
                               Download Backup
                             </a>
