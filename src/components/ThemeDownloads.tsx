@@ -64,7 +64,7 @@ export default function ThemeDownloads({ downloads }: ThemeDownloadsProps) {
                       href={downloads.mtz.hyperOS12}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="inline-flex flex-1 sm:flex-none items-center justify-center rounded-xl bg-white px-4 sm:px-6 py-3 text-xs sm:text-sm font-semibold text-gray-900 whitespace-nowrap shadow-[0_2px_8px_rgba(0,0,0,0.04)] dark:shadow-[0_2px_12px_rgba(0,0,0,0.3)] ring-1 ring-inset ring-gray-200 transition-all duration-200 ease-out hover:-translate-y-[1px] hover:shadow-[0_6px_20px_rgba(0,0,0,0.08)] dark:hover:shadow-[0_6px_20px_rgba(0,0,0,0.5)] hover:ring-gray-300 active:translate-y-0 active:scale-[0.97] hover:bg-gray-50 dark:bg-white dark:text-gray-900 dark:hover:bg-gray-100 motion-reduce:transition-none motion-reduce:hover:transform-none"
+                      className="inline-flex flex-1 sm:flex-none items-center justify-center rounded-xl bg-black px-4 sm:px-6 py-3 text-xs sm:text-sm font-semibold text-white whitespace-nowrap shadow-[0_2px_8px_rgba(0,0,0,0.1)] dark:shadow-[0_2px_12px_rgba(255,255,255,0.1)] transition-all duration-200 ease-out hover:-translate-y-[1px] hover:shadow-[0_6px_20px_rgba(0,0,0,0.15)] dark:hover:shadow-[0_6px_24px_rgba(255,255,255,0.2)] active:translate-y-0 active:scale-[0.97] hover:bg-gray-800 dark:bg-white dark:text-black dark:hover:bg-gray-200 motion-reduce:transition-none motion-reduce:hover:transform-none"
                     >
                       HyperOS 1 & 2
                     </a>
@@ -74,7 +74,7 @@ export default function ThemeDownloads({ downloads }: ThemeDownloadsProps) {
                       href={downloads.mtz.hyperOS3}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="inline-flex flex-1 sm:flex-none items-center justify-center rounded-xl bg-white px-4 sm:px-6 py-3 text-xs sm:text-sm font-semibold text-gray-900 whitespace-nowrap shadow-[0_2px_8px_rgba(0,0,0,0.04)] dark:shadow-[0_2px_12px_rgba(0,0,0,0.3)] ring-1 ring-inset ring-gray-200 transition-all duration-200 ease-out hover:-translate-y-[1px] hover:shadow-[0_6px_20px_rgba(0,0,0,0.08)] dark:hover:shadow-[0_6px_20px_rgba(0,0,0,0.5)] hover:ring-gray-300 active:translate-y-0 active:scale-[0.97] hover:bg-gray-50 dark:bg-white dark:text-gray-900 dark:hover:bg-gray-100 motion-reduce:transition-none motion-reduce:hover:transform-none"
+                      className="inline-flex flex-1 sm:flex-none items-center justify-center rounded-xl bg-black px-4 sm:px-6 py-3 text-xs sm:text-sm font-semibold text-white whitespace-nowrap shadow-[0_2px_8px_rgba(0,0,0,0.1)] dark:shadow-[0_2px_12px_rgba(255,255,255,0.1)] transition-all duration-200 ease-out hover:-translate-y-[1px] hover:shadow-[0_6px_20px_rgba(0,0,0,0.15)] dark:hover:shadow-[0_6px_24px_rgba(255,255,255,0.2)] active:translate-y-0 active:scale-[0.97] hover:bg-gray-800 dark:bg-white dark:text-black dark:hover:bg-gray-200 motion-reduce:transition-none motion-reduce:hover:transform-none"
                     >
                       HyperOS 3
                     </a>
@@ -93,7 +93,7 @@ export default function ThemeDownloads({ downloads }: ThemeDownloadsProps) {
                     href={downloads.backup}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="inline-flex flex-1 sm:flex-none items-center justify-center rounded-xl bg-white px-6 py-3 text-sm font-semibold text-gray-900 shadow-[0_2px_8px_rgba(0,0,0,0.04)] dark:shadow-[0_2px_12px_rgba(0,0,0,0.3)] ring-1 ring-inset ring-gray-200 transition-all duration-200 ease-out hover:-translate-y-[1px] hover:shadow-[0_6px_20px_rgba(0,0,0,0.08)] dark:hover:shadow-[0_6px_20px_rgba(0,0,0,0.5)] hover:ring-gray-300 active:translate-y-0 active:scale-[0.97] hover:bg-gray-50 dark:bg-white dark:text-gray-900 dark:hover:bg-gray-100 motion-reduce:transition-none motion-reduce:hover:transform-none"
+                    className="inline-flex flex-1 sm:flex-none items-center justify-center rounded-xl bg-black px-6 py-3 text-sm font-semibold text-white shadow-[0_2px_8px_rgba(0,0,0,0.1)] dark:shadow-[0_2px_12px_rgba(255,255,255,0.1)] transition-all duration-200 ease-out hover:-translate-y-[1px] hover:shadow-[0_6px_20px_rgba(0,0,0,0.15)] dark:hover:shadow-[0_6px_24px_rgba(255,255,255,0.2)] active:translate-y-0 active:scale-[0.97] hover:bg-gray-800 dark:bg-white dark:text-black dark:hover:bg-gray-200 motion-reduce:transition-none motion-reduce:hover:transform-none"
                   >
                     Download Backup File
                   </a>

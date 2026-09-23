@@ -190,7 +190,7 @@ export default function ThemeGallery({ screenshots, themeName }: ThemeGalleryPro
         {/* Thumbnails Section */}
         <div 
           ref={thumbnailContainerRef}
-          className="scrollbar-hide flex flex-col w-16 md:w-20 gap-3 overflow-y-auto overflow-x-hidden pr-1 pb-1"
+          className="scrollbar-hide flex flex-col w-20 md:w-24 gap-3 overflow-y-auto overflow-x-hidden px-2 py-1"
         >
           {screenshots.map((src, idx) => (
             <button
