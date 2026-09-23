@@ -187,7 +187,7 @@ export default function PrivacyPolicyPage() {
               OX×MS DESIGNS publishes free HyperOS theme designs and related resources.
             </p>
             <p className="mb-4 leading-relaxed">
-              Certain original theme work is created collaboratively by Masoud and Osprey under the OX×MS DESIGNS name.
+              Certain original theme work is created collaboratively by Masoud and OXFURY under the OX×MS DESIGNS name.
             </p>
             <p className="leading-relaxed">
               Original artwork, design work, theme modifications, screenshots, descriptions, and other material created specifically by OX×MS DESIGNS remain subject to the rights of their respective creators.
