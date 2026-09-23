@@ -32,6 +32,7 @@ export default function RootLayout({
   return (
     <html lang="en" className={`${geistSans.variable} ${geistMono.variable}`}>
       <head>
+        <meta name="6658329c22883eeb89684beab839f5b63c24c397" content="6658329c22883eeb89684beab839f5b63c24c397" />
         <script 
           async 
           src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3988651709405199"
