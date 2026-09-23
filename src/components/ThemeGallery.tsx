@@ -111,10 +111,11 @@ export default function ThemeGallery({ screenshots, themeName }: ThemeGalleryPro
               aria-label="Open full screen"
             >
               <Image
+                key={currentDisplayImage}
                 src={currentDisplayImage}
                 alt={`${themeName} screenshot ${selectedIndex + 1}`}
                 fill
-                className="object-contain transition-opacity duration-300"
+                className="object-contain animate-fade-in"
                 priority
               />
             </button>
@@ -135,10 +136,11 @@ export default function ThemeGallery({ screenshots, themeName }: ThemeGalleryPro
                 aria-label="Open full screen"
               >
                 <Image
+                  key={screenshots[(selectedIndex + 1) % screenshots.length]}
                   src={screenshots[(selectedIndex + 1) % screenshots.length]}
                   alt={`${themeName} screenshot ${((selectedIndex + 1) % screenshots.length) + 1}`}
                   fill
-                  className="object-contain transition-opacity duration-300"
+                  className="object-contain animate-fade-in"
                   priority
                 />
               </button>
@@ -181,7 +183,7 @@ export default function ThemeGallery({ screenshots, themeName }: ThemeGalleryPro
 
       {/* Fullscreen Modal */}
       {isFullscreen && (
-        <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/95 p-4 backdrop-blur-md">
+        <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/95 p-4 backdrop-blur-md animate-fade-in">
           <div className="absolute left-0 right-0 top-0 z-10 flex items-center justify-between p-4 text-white">
             <div className="text-sm font-medium tracking-widest text-gray-300">
               {selectedIndex + 1} / {screenshots.length}
@@ -222,10 +224,11 @@ export default function ThemeGallery({ screenshots, themeName }: ThemeGalleryPro
 
           <div className="relative flex h-[90vh] w-full max-w-7xl items-center justify-center">
             <Image
+              key={screenshots[selectedIndex]}
               src={screenshots[selectedIndex]}
               alt={`Fullscreen view ${selectedIndex + 1}`}
               fill
-              className="object-contain"
+              className="object-contain animate-fade-in"
               priority
             />
           </div>
@@ -234,7 +237,7 @@ export default function ThemeGallery({ screenshots, themeName }: ThemeGalleryPro
 
       {/* View All Modal */}
       {isViewAllOpen && (
-        <div className="fixed inset-0 z-50 flex flex-col overflow-y-auto bg-gray-50/95 backdrop-blur-md dark:bg-gray-950/95">
+        <div className="fixed inset-0 z-50 flex flex-col overflow-y-auto bg-gray-50/95 backdrop-blur-md dark:bg-gray-950/95 animate-fade-slide-up">
           <div className="sticky top-0 z-10 flex items-center justify-between border-b border-gray-200 bg-gray-50/90 px-6 py-4 dark:border-gray-800 dark:bg-gray-950/90">
             <h3 className="text-xl font-bold text-gray-900 dark:text-gray-100">All Screenshots ({screenshots.length})</h3>
             <button

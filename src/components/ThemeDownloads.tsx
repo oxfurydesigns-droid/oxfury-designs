@@ -31,7 +31,7 @@ export default function ThemeDownloads({ downloads }: ThemeDownloadsProps) {
                   href={downloads.themeStore!.hyperOS3}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex flex-1 sm:flex-none items-center justify-center rounded-xl bg-black px-6 py-3 text-sm font-semibold text-white shadow-sm transition-all hover:bg-gray-800 dark:bg-white dark:text-black dark:hover:bg-gray-200"
+                  className="inline-flex flex-1 sm:flex-none items-center justify-center rounded-xl bg-black px-6 py-3 text-sm font-semibold text-white shadow-sm transition-all duration-200 ease-out active:scale-[0.98] hover:bg-gray-800 dark:bg-white dark:text-black dark:hover:bg-gray-200"
                 >
                   HyperOS 3
                 </a>
@@ -41,7 +41,7 @@ export default function ThemeDownloads({ downloads }: ThemeDownloadsProps) {
                   href={downloads.themeStore!.hyperOS12}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex flex-1 sm:flex-none items-center justify-center rounded-xl bg-black px-6 py-3 text-sm font-semibold text-white shadow-sm transition-all hover:bg-gray-800 dark:bg-white dark:text-black dark:hover:bg-gray-200"
+                  className="inline-flex flex-1 sm:flex-none items-center justify-center rounded-xl bg-black px-6 py-3 text-sm font-semibold text-white shadow-sm transition-all duration-200 ease-out active:scale-[0.98] hover:bg-gray-800 dark:bg-white dark:text-black dark:hover:bg-gray-200"
                 >
                   HyperOS 1 & 2
                 </a>
@@ -64,7 +64,7 @@ export default function ThemeDownloads({ downloads }: ThemeDownloadsProps) {
                       href={downloads.mtz.hyperOS12}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="inline-flex flex-1 sm:flex-none items-center justify-center rounded-xl bg-white px-4 sm:px-6 py-3 text-xs sm:text-sm font-semibold text-gray-900 whitespace-nowrap shadow-sm ring-1 ring-inset ring-gray-200 transition-all hover:bg-gray-50 dark:bg-white dark:text-gray-900 dark:hover:bg-gray-100"
+                      className="inline-flex flex-1 sm:flex-none items-center justify-center rounded-xl bg-white px-4 sm:px-6 py-3 text-xs sm:text-sm font-semibold text-gray-900 whitespace-nowrap shadow-sm ring-1 ring-inset ring-gray-200 transition-all duration-200 ease-out active:scale-[0.98] hover:bg-gray-50 dark:bg-white dark:text-gray-900 dark:hover:bg-gray-100"
                     >
                       HyperOS 1 & 2
                     </a>
@@ -74,7 +74,7 @@ export default function ThemeDownloads({ downloads }: ThemeDownloadsProps) {
                       href={downloads.mtz.hyperOS3}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="inline-flex flex-1 sm:flex-none items-center justify-center rounded-xl bg-white px-4 sm:px-6 py-3 text-xs sm:text-sm font-semibold text-gray-900 whitespace-nowrap shadow-sm ring-1 ring-inset ring-gray-200 transition-all hover:bg-gray-50 dark:bg-white dark:text-gray-900 dark:hover:bg-gray-100"
+                      className="inline-flex flex-1 sm:flex-none items-center justify-center rounded-xl bg-white px-4 sm:px-6 py-3 text-xs sm:text-sm font-semibold text-gray-900 whitespace-nowrap shadow-sm ring-1 ring-inset ring-gray-200 transition-all duration-200 ease-out active:scale-[0.98] hover:bg-gray-50 dark:bg-white dark:text-gray-900 dark:hover:bg-gray-100"
                     >
                       HyperOS 3
                     </a>
@@ -93,7 +93,7 @@ export default function ThemeDownloads({ downloads }: ThemeDownloadsProps) {
                     href={downloads.backup}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="inline-flex flex-1 sm:flex-none items-center justify-center rounded-xl bg-white px-6 py-3 text-sm font-semibold text-gray-900 shadow-sm ring-1 ring-inset ring-gray-200 transition-all hover:bg-gray-50 dark:bg-white dark:text-gray-900 dark:hover:bg-gray-100"
+                    className="inline-flex flex-1 sm:flex-none items-center justify-center rounded-xl bg-white px-6 py-3 text-sm font-semibold text-gray-900 shadow-sm ring-1 ring-inset ring-gray-200 transition-all duration-200 ease-out active:scale-[0.98] hover:bg-gray-50 dark:bg-white dark:text-gray-900 dark:hover:bg-gray-100"
                   >
                     Download Backup File
                   </a>

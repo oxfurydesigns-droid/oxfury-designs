@@ -81,57 +81,63 @@ export default function VersionHistory({ currentVersion, previousVersions }: Ver
                       </span>
                     </div>
                     <svg
-                      className={`h-5 w-5 text-gray-400 transition-transform ${isExpanded ? "rotate-180" : ""}`}
+                      className={`h-5 w-5 text-gray-400 transition-transform duration-300 ease-out ${isExpanded ? "rotate-180" : ""}`}
                       fill="none" viewBox="0 0 24 24" stroke="currentColor"
                     >
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
                     </svg>
                   </button>
 
-                  {isExpanded && (
-                    <div className="p-4 pt-0">
-                      <div className="mb-4 h-px w-full bg-gray-200 dark:bg-gray-800"></div>
-                      
-                      {ver.changelog && ver.changelog.length > 0 && (
-                        <div className="mb-4">
-                          <h4 className="text-sm font-semibold text-gray-900 dark:text-gray-100">Changelog</h4>
-                          <ul className="mt-2 space-y-1">
-                            {ver.changelog.map((item, i) => (
-                              <li key={i} className="flex items-start text-sm text-gray-600 dark:text-gray-300">
-                                <span className="mr-2 mt-1.5 block h-1 w-1 shrink-0 rounded-full bg-gray-400 dark:bg-gray-500"></span>
-                                {item}
-                              </li>
-                            ))}
-                          </ul>
-                        </div>
-                      )}
+                  <div
+                    className={`grid transition-all duration-300 ease-out ${
+                      isExpanded ? "grid-rows-[1fr] opacity-100" : "grid-rows-[0fr] opacity-0"
+                    }`}
+                  >
+                    <div className="overflow-hidden">
+                      <div className="p-4 pt-0">
+                        <div className="mb-4 h-px w-full bg-gray-200 dark:bg-gray-800"></div>
+                        
+                        {ver.changelog && ver.changelog.length > 0 && (
+                          <div className="mb-4">
+                            <h4 className="text-sm font-semibold text-gray-900 dark:text-gray-100">Changelog</h4>
+                            <ul className="mt-2 space-y-1">
+                              {ver.changelog.map((item, i) => (
+                                <li key={i} className="flex items-start text-sm text-gray-600 dark:text-gray-300">
+                                  <span className="mr-2 mt-1.5 block h-1 w-1 shrink-0 rounded-full bg-gray-400 dark:bg-gray-500"></span>
+                                  {item}
+                                </li>
+                              ))}
+                            </ul>
+                          </div>
+                        )}
 
-                      {hasFiles && (
-                        <div className="mt-6 flex flex-row flex-wrap gap-4">
-                          {ver.downloads?.mtz && (
-                            <a
-                              href={ver.downloads.mtz}
-                              target="_blank"
-                              rel="noopener noreferrer"
-                              className="inline-flex flex-1 sm:flex-none items-center justify-center rounded-xl bg-white px-6 py-3 text-sm font-semibold text-gray-900 shadow-sm ring-1 ring-inset ring-gray-200 transition-all hover:bg-gray-50 dark:bg-white dark:text-gray-900 dark:hover:bg-gray-100"
-                            >
-                              Download MTZ
-                            </a>
-                          )}
-                          {ver.downloads?.backup && (
-                            <a
-                              href={ver.downloads.backup}
-                              target="_blank"
-                              rel="noopener noreferrer"
-                              className="inline-flex flex-1 sm:flex-none items-center justify-center rounded-xl bg-white px-6 py-3 text-sm font-semibold text-gray-900 shadow-sm ring-1 ring-inset ring-gray-200 transition-all hover:bg-gray-50 dark:bg-white dark:text-gray-900 dark:hover:bg-gray-100"
-                            >
-                              Download Backup
-                            </a>
-                          )}
-                        </div>
-                      )}
+                        {hasFiles && (
+                          <div className="mt-6 flex flex-row flex-wrap gap-4">
+                            {ver.downloads?.mtz && (
+                              <a
+                                href={ver.downloads.mtz}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className="inline-flex flex-1 sm:flex-none items-center justify-center rounded-xl bg-white px-6 py-3 text-sm font-semibold text-gray-900 shadow-sm ring-1 ring-inset ring-gray-200 transition-all duration-200 ease-out active:scale-[0.98] hover:bg-gray-50 dark:bg-white dark:text-gray-900 dark:hover:bg-gray-100"
+                              >
+                                Download MTZ
+                              </a>
+                            )}
+                            {ver.downloads?.backup && (
+                              <a
+                                href={ver.downloads.backup}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className="inline-flex flex-1 sm:flex-none items-center justify-center rounded-xl bg-white px-6 py-3 text-sm font-semibold text-gray-900 shadow-sm ring-1 ring-inset ring-gray-200 transition-all duration-200 ease-out active:scale-[0.98] hover:bg-gray-50 dark:bg-white dark:text-gray-900 dark:hover:bg-gray-100"
+                              >
+                                Download Backup
+                              </a>
+                            )}
+                          </div>
+                        )}
+                      </div>
                     </div>
-                  )}
+                  </div>
                 </div>
               );
             })}
