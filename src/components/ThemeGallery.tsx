@@ -14,38 +14,47 @@ export default function ThemeGallery({ screenshots, themeName }: ThemeGalleryPro
   const [isFullscreen, setIsFullscreen] = useState(false);
   const [isClosingFullscreen, setIsClosingFullscreen] = useState(false);
   const [isViewAllOpen, setIsViewAllOpen] = useState(false);
+  const [isClosingViewAll, setIsClosingViewAll] = useState(false);
   const thumbnailContainerRef = useRef<HTMLDivElement>(null);
 
-  // Keyboard navigation for fullscreen
+  // Keyboard navigation for fullscreen and view all
   useEffect(() => {
     const handleKeyDown = (e: KeyboardEvent) => {
       if (isFullscreen && !isClosingFullscreen) {
         if (e.key === "Escape") closeFullscreen();
         if (e.key === "ArrowRight") handleNextLightbox();
         if (e.key === "ArrowLeft") handlePrevLightbox();
-      } else if (isViewAllOpen) {
-        if (e.key === "Escape") setIsViewAllOpen(false);
+      } else if (isViewAllOpen && !isClosingViewAll) {
+        if (e.key === "Escape") closeViewAll();
       }
     };
 
     window.addEventListener("keydown", handleKeyDown);
     return () => window.removeEventListener("keydown", handleKeyDown);
-  }, [isFullscreen, isClosingFullscreen, isViewAllOpen, selectedIndex, screenshots.length]);
+  }, [isFullscreen, isClosingFullscreen, isViewAllOpen, isClosingViewAll, selectedIndex, screenshots.length]);
 
   // Handle browser back button (popstate)
   useEffect(() => {
-    const handlePopState = () => {
-      if (isFullscreen) {
+    const handlePopState = (e: PopStateEvent) => {
+      if (isFullscreen && (!e.state || !e.state.lightbox)) {
         setIsClosingFullscreen(true);
         setTimeout(() => {
           setIsFullscreen(false);
           setIsClosingFullscreen(false);
         }, 200);
       }
+      
+      if (isViewAllOpen && (!e.state || !e.state.viewAll)) {
+        setIsClosingViewAll(true);
+        setTimeout(() => {
+          setIsViewAllOpen(false);
+          setIsClosingViewAll(false);
+        }, 200);
+      }
     };
     window.addEventListener("popstate", handlePopState);
     return () => window.removeEventListener("popstate", handlePopState);
-  }, [isFullscreen]);
+  }, [isFullscreen, isViewAllOpen]);
 
   // Lock body scroll when any modal is open
   useEffect(() => {
@@ -74,19 +83,40 @@ export default function ThemeGallery({ screenshots, themeName }: ThemeGalleryPro
       setIsFullscreen(true);
       setIsClosingFullscreen(false);
     }
-    setIsViewAllOpen(false);
   };
 
   const closeFullscreen = () => {
     if (!isFullscreen || isClosingFullscreen) return;
-    setIsClosingFullscreen(true);
-    setTimeout(() => {
-      setIsFullscreen(false);
-      setIsClosingFullscreen(false);
-      if (window.history.state && window.history.state.lightbox) {
-        window.history.back();
-      }
-    }, 200);
+    if (window.history.state && window.history.state.lightbox) {
+      window.history.back(); // Let popstate handle it
+    } else {
+      setIsClosingFullscreen(true);
+      setTimeout(() => {
+        setIsFullscreen(false);
+        setIsClosingFullscreen(false);
+      }, 200);
+    }
+  };
+
+  const openViewAll = () => {
+    if (!isViewAllOpen) {
+      window.history.pushState({ viewAll: true }, "");
+      setIsViewAllOpen(true);
+      setIsClosingViewAll(false);
+    }
+  };
+
+  const closeViewAll = () => {
+    if (!isViewAllOpen || isClosingViewAll) return;
+    if (window.history.state && window.history.state.viewAll) {
+      window.history.back();
+    } else {
+      setIsClosingViewAll(true);
+      setTimeout(() => {
+        setIsViewAllOpen(false);
+        setIsClosingViewAll(false);
+      }, 200);
+    }
   };
 
   // Keep thumbnail in view in the scrolling row/column
@@ -126,7 +156,7 @@ export default function ThemeGallery({ screenshots, themeName }: ThemeGalleryPro
           Screenshots
         </h3>
         <button
-          onClick={() => setIsViewAllOpen(true)}
+          onClick={openViewAll}
           className="text-sm font-semibold text-blue-600 transition-all duration-200 ease-out hover:text-blue-700 hover:opacity-80 active:scale-[0.95] dark:text-blue-400 dark:hover:text-blue-300 motion-reduce:transition-none motion-reduce:active:transform-none"
         >
           View all
@@ -272,12 +302,12 @@ export default function ThemeGallery({ screenshots, themeName }: ThemeGalleryPro
       )}
 
       {/* View All Modal */}
-      {isViewAllOpen && (
-        <div className="fixed inset-0 z-50 flex flex-col overflow-y-auto bg-gray-50/95 backdrop-blur-md dark:bg-gray-950/95 animate-fade-slide-up">
+      {isViewAllOpen && typeof document !== "undefined" && createPortal(
+        <div className={`fixed inset-0 z-[90] flex h-[100dvh] w-screen flex-col overflow-y-auto bg-gray-50/95 backdrop-blur-md dark:bg-gray-950/95 ${isClosingViewAll ? "animate-fade-out" : "animate-fade-slide-up"}`}>
           <div className="sticky top-0 z-10 flex items-center justify-between border-b border-gray-200 bg-gray-50/90 px-6 py-4 dark:border-gray-800 dark:bg-gray-950/90">
             <h3 className="text-xl font-bold text-gray-900 dark:text-gray-100">All Screenshots ({screenshots.length})</h3>
             <button
-              onClick={() => setIsViewAllOpen(false)}
+              onClick={closeViewAll}
               className="rounded-full bg-gray-200 p-2 text-gray-900 transition-colors hover:bg-gray-300 dark:bg-gray-800 dark:text-gray-100 dark:hover:bg-gray-700"
               aria-label="Close view all"
             >
@@ -307,7 +337,8 @@ export default function ThemeGallery({ screenshots, themeName }: ThemeGalleryPro
               ))}
             </div>
           </div>
-        </div>
+        </div>,
+        document.body
       )}
     </div>
   );
