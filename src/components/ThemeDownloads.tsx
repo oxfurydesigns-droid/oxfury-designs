@@ -43,7 +43,7 @@ export default function ThemeDownloads({ downloads }: ThemeDownloadsProps) {
                   rel="noopener noreferrer"
                   className="inline-flex flex-1 sm:flex-none items-center justify-center rounded-xl bg-black px-6 py-3 text-sm font-semibold text-white shadow-sm transition-all hover:bg-gray-800 dark:bg-white dark:text-black dark:hover:bg-gray-200"
                 >
-                  HyperOS 1.2
+                  HyperOS 1 & 2
                 </a>
               )}
             </div>
@@ -66,7 +66,7 @@ export default function ThemeDownloads({ downloads }: ThemeDownloadsProps) {
                       rel="noopener noreferrer"
                       className="inline-flex flex-1 sm:flex-none items-center justify-center rounded-xl bg-gray-100 px-6 py-3 text-sm font-semibold text-gray-900 shadow-sm ring-1 ring-inset ring-gray-200 transition-all hover:bg-gray-200 dark:bg-gray-800 dark:text-gray-100 dark:ring-gray-700 dark:hover:bg-gray-700"
                     >
-                      HyperOS 1.2
+                      HyperOS 1 & 2
                     </a>
                   )}
                   {downloads.mtz.hyperOS3 && (

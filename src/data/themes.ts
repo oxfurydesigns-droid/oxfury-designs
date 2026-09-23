@@ -62,9 +62,9 @@ const oxG5Base: Theme = {
     "Custom lockscreen and system UI elements",
     "Redesigned app icons with a consistent visual style",
     "Custom widget and typography styling",
-    "Designed for HyperOS 1.2, HyperOS 2 and HyperOS 3"
+    "Designed for HyperOS 1, HyperOS 2 and HyperOS 3"
   ],
-  compatibility: ["HyperOS 1.2", "HyperOS 2", "HyperOS 3"],
+  compatibility: ["HyperOS 1", "HyperOS 2", "HyperOS 3"],
   releaseDate: "2024-10-01",
   thumbnail: "/themes/ox-g5-preview.jpg",
   mainPreview: "/themes/ox-g5-preview.jpg",
@@ -157,17 +157,10 @@ const oxClay: Theme = {
   popularity: 100,
 };
 
-// Real data for OXFURY DESIGNS themes plus TEMPORARY TEST THEMES
+// Real data for OXFURY DESIGNS themes
 export const themes: Theme[] = [
   oxG5Base,
-  oxClay,
-  { ...oxG5Base, id: "ox-g5-test-2", slug: "ox-g5-test-2", name: "OX G5 — Test 2" },
-  { ...oxG5Base, id: "ox-g5-test-3", slug: "ox-g5-test-3", name: "OX G5 — Test 3" },
-  { ...oxG5Base, id: "ox-g5-test-4", slug: "ox-g5-test-4", name: "OX G5 — Test 4" },
-  { ...oxG5Base, id: "ox-g5-test-5", slug: "ox-g5-test-5", name: "OX G5 — Test 5" },
-  { ...oxG5Base, id: "ox-g5-test-6", slug: "ox-g5-test-6", name: "OX G5 — Test 6" },
-  { ...oxG5Base, id: "ox-g5-test-7", slug: "ox-g5-test-7", name: "OX G5 — Test 7" },
-  { ...oxG5Base, id: "ox-g5-test-8", slug: "ox-g5-test-8", name: "OX G5 — Test 8" }
+  oxClay
 ];
 
 export function getThemeBySlug(slug: string): Theme | undefined {
