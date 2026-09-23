@@ -4,18 +4,18 @@ export default function Footer() {
   return (
     <footer className="mt-20 border-t border-gray-100 bg-white px-4 py-12 dark:border-[#1a1b1e] dark:bg-[#0a0a0b] md:py-16">
       <div className="container mx-auto">
-        <div className="flex flex-col gap-10 sm:flex-row sm:justify-between">
+        <div className="flex flex-col gap-10 md:items-center">
           
-          <div className="flex flex-col">
+          <div className="flex flex-col md:items-center">
             <span className="text-lg font-bold tracking-tight text-gray-900 dark:text-gray-100">
               OX×MS DESIGNS
             </span>
-            <p className="mt-2 text-sm text-gray-500 dark:text-gray-400">
+            <p className="mt-2 text-sm text-gray-500 dark:text-gray-400 md:text-center">
               Free HyperOS themes & custom designs
             </p>
           </div>
 
-          <div className="flex flex-col gap-3">
+          <div className="flex flex-col gap-3 md:items-center">
             <span className="text-xs font-semibold tracking-wider text-gray-900 uppercase dark:text-gray-100">
               Contact
             </span>
