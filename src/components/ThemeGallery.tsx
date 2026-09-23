@@ -12,13 +12,14 @@ interface ThemeGalleryProps {
 export default function ThemeGallery({ screenshots, themeName }: ThemeGalleryProps) {
   const [selectedIndex, setSelectedIndex] = useState<number>(0);
   const [isFullscreen, setIsFullscreen] = useState(false);
+  const [isClosingFullscreen, setIsClosingFullscreen] = useState(false);
   const [isViewAllOpen, setIsViewAllOpen] = useState(false);
   const thumbnailContainerRef = useRef<HTMLDivElement>(null);
 
   // Keyboard navigation for fullscreen
   useEffect(() => {
     const handleKeyDown = (e: KeyboardEvent) => {
-      if (isFullscreen) {
+      if (isFullscreen && !isClosingFullscreen) {
         if (e.key === "Escape") closeFullscreen();
         if (e.key === "ArrowRight") handleNextLightbox();
         if (e.key === "ArrowLeft") handlePrevLightbox();
@@ -29,13 +30,17 @@ export default function ThemeGallery({ screenshots, themeName }: ThemeGalleryPro
 
     window.addEventListener("keydown", handleKeyDown);
     return () => window.removeEventListener("keydown", handleKeyDown);
-  }, [isFullscreen, isViewAllOpen, selectedIndex, screenshots.length]);
+  }, [isFullscreen, isClosingFullscreen, isViewAllOpen, selectedIndex, screenshots.length]);
 
   // Handle browser back button (popstate)
   useEffect(() => {
     const handlePopState = () => {
       if (isFullscreen) {
-        setIsFullscreen(false);
+        setIsClosingFullscreen(true);
+        setTimeout(() => {
+          setIsFullscreen(false);
+          setIsClosingFullscreen(false);
+        }, 200);
       }
     };
     window.addEventListener("popstate", handlePopState);
@@ -67,15 +72,21 @@ export default function ThemeGallery({ screenshots, themeName }: ThemeGalleryPro
     if (!isFullscreen) {
       window.history.pushState({ lightbox: true }, "");
       setIsFullscreen(true);
+      setIsClosingFullscreen(false);
     }
     setIsViewAllOpen(false);
   };
 
   const closeFullscreen = () => {
-    setIsFullscreen(false);
-    if (window.history.state && window.history.state.lightbox) {
-      window.history.back();
-    }
+    if (!isFullscreen || isClosingFullscreen) return;
+    setIsClosingFullscreen(true);
+    setTimeout(() => {
+      setIsFullscreen(false);
+      setIsClosingFullscreen(false);
+      if (window.history.state && window.history.state.lightbox) {
+        window.history.back();
+      }
+    }, 200);
   };
 
   // Keep thumbnail in view in the scrolling row/column
@@ -205,7 +216,7 @@ export default function ThemeGallery({ screenshots, themeName }: ThemeGalleryPro
 
       {/* Fullscreen Modal */}
       {isFullscreen && typeof document !== "undefined" && createPortal(
-        <div className="fixed inset-0 z-[100] flex h-[100dvh] w-screen flex-col items-center justify-center bg-black/95 backdrop-blur-md animate-fade-in">
+        <div className={`fixed inset-0 z-[100] flex h-[100dvh] w-screen flex-col items-center justify-center bg-black/95 backdrop-blur-md ${isClosingFullscreen ? "animate-fade-out" : "animate-fade-in"}`}>
           <div className="absolute left-0 right-0 top-0 z-[101] flex items-center justify-between p-4 text-white">
             <div className="text-sm font-medium tracking-widest text-gray-300">
               {selectedIndex + 1} / {screenshots.length}
@@ -245,13 +256,13 @@ export default function ThemeGallery({ screenshots, themeName }: ThemeGalleryPro
           )}
 
           <div className="relative flex h-full w-full max-w-7xl items-center justify-center p-4 pt-20 pb-6 sm:p-16">
-            <div className="relative h-full w-full">
+            <div className={`relative h-full w-full ${isClosingFullscreen ? "animate-zoom-out" : "animate-zoom-in"}`}>
               <Image
                 key={screenshots[selectedIndex]}
                 src={screenshots[selectedIndex]}
                 alt={`Fullscreen view ${selectedIndex + 1}`}
                 fill
-                className="object-contain animate-fade-in"
+                className="object-contain"
                 priority
               />
             </div>
