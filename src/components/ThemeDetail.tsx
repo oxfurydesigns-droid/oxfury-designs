@@ -3,6 +3,7 @@ import { Theme } from '@/data/themes';
 import ThemeDownloads from './ThemeDownloads';
 import VersionHistory from './VersionHistory';
 import ThemeGallery from './ThemeGallery';
+import AdBanner from './AdBanner';
 
 interface ThemeDetailProps {
   theme: Theme;
@@ -96,7 +97,11 @@ export default function ThemeDetail({ theme }: ThemeDetailProps) {
           </div>
         )}
 
-        <div className="mt-6">
+        <div className="mt-12 lg:mt-20">
+          <AdBanner />
+        </div>
+
+        <div className="mt-12 lg:mt-16">
           <VersionHistory 
             currentVersion={theme.currentVersion} 
             previousVersions={theme.previousVersions} 
