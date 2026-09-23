@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, useEffect, useRef } from "react";
+import { createPortal } from "react-dom";
 import Image from "next/image";
 
 interface ThemeGalleryProps {
@@ -203,9 +204,9 @@ export default function ThemeGallery({ screenshots, themeName }: ThemeGalleryPro
       </div>
 
       {/* Fullscreen Modal */}
-      {isFullscreen && (
-        <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/95 p-4 backdrop-blur-md animate-fade-in">
-          <div className="absolute left-0 right-0 top-0 z-10 flex items-center justify-between p-4 text-white">
+      {isFullscreen && typeof document !== "undefined" && createPortal(
+        <div className="fixed inset-0 z-[100] flex h-[100dvh] w-screen flex-col items-center justify-center bg-black/95 backdrop-blur-md animate-fade-in">
+          <div className="absolute left-0 right-0 top-0 z-[101] flex items-center justify-between p-4 text-white">
             <div className="text-sm font-medium tracking-widest text-gray-300">
               {selectedIndex + 1} / {screenshots.length}
             </div>
@@ -224,7 +225,7 @@ export default function ThemeGallery({ screenshots, themeName }: ThemeGalleryPro
             <>
               <button
                 onClick={handlePrevLightbox}
-                className="absolute left-2 z-10 rounded-full bg-white/10 p-3 text-white transition-colors hover:bg-white/20 sm:left-6"
+                className="absolute left-2 top-1/2 z-[101] -translate-y-1/2 rounded-full bg-white/10 p-3 text-white transition-colors hover:bg-white/20 sm:left-6"
                 aria-label="Previous image"
               >
                 <svg className="h-6 w-6 sm:h-8 sm:w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -233,7 +234,7 @@ export default function ThemeGallery({ screenshots, themeName }: ThemeGalleryPro
               </button>
               <button
                 onClick={handleNextLightbox}
-                className="absolute right-2 z-10 rounded-full bg-white/10 p-3 text-white transition-colors hover:bg-white/20 sm:right-6"
+                className="absolute right-2 top-1/2 z-[101] -translate-y-1/2 rounded-full bg-white/10 p-3 text-white transition-colors hover:bg-white/20 sm:right-6"
                 aria-label="Next image"
               >
                 <svg className="h-6 w-6 sm:h-8 sm:w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -243,17 +244,20 @@ export default function ThemeGallery({ screenshots, themeName }: ThemeGalleryPro
             </>
           )}
 
-          <div className="relative flex h-[90vh] w-full max-w-7xl items-center justify-center">
-            <Image
-              key={screenshots[selectedIndex]}
-              src={screenshots[selectedIndex]}
-              alt={`Fullscreen view ${selectedIndex + 1}`}
-              fill
-              className="object-contain animate-fade-in"
-              priority
-            />
+          <div className="relative flex h-full w-full max-w-7xl items-center justify-center p-4 pt-20 pb-6 sm:p-16">
+            <div className="relative h-full w-full">
+              <Image
+                key={screenshots[selectedIndex]}
+                src={screenshots[selectedIndex]}
+                alt={`Fullscreen view ${selectedIndex + 1}`}
+                fill
+                className="object-contain animate-fade-in"
+                priority
+              />
+            </div>
           </div>
-        </div>
+        </div>,
+        document.body
       )}
 
       {/* View All Modal */}
