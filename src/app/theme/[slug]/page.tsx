@@ -27,7 +27,7 @@ export default async function ThemePage({ params }: ThemePageProps) {
   return (
     <div className="container mx-auto px-4 py-8">
       <div className="mb-6">
-        <Link href="/" className="inline-flex items-center text-sm font-medium text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-100">
+        <Link href="/" className="inline-flex items-center text-sm font-medium text-gray-500 transition-all duration-200 ease-out hover:text-gray-900 hover:-translate-x-1 active:scale-[0.95] dark:text-gray-400 dark:hover:text-gray-100 motion-reduce:transition-none motion-reduce:hover:transform-none">
           <svg className="mr-2 h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 19l-7-7m0 0l7-7m-7 7h18" />
           </svg>

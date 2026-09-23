@@ -22,7 +22,7 @@ export default function VersionHistory({ currentVersion, previousVersions }: Ver
       </h2>
 
       {/* Latest Version */}
-      <div className="mt-6 rounded-2xl bg-white p-6 shadow-sm ring-1 ring-gray-200 dark:bg-gray-900 dark:ring-gray-800">
+      <div className="mt-6 rounded-2xl bg-white p-6 shadow-[0_2px_8px_rgba(0,0,0,0.04)] dark:shadow-[0_2px_12px_rgba(0,0,0,0.3)] ring-1 ring-gray-200 dark:bg-gray-900 dark:ring-gray-800">
         <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between">
           <div>
             <h3 className="text-lg font-bold text-gray-900 dark:text-gray-100 flex items-center gap-2">
@@ -65,10 +65,10 @@ export default function VersionHistory({ currentVersion, previousVersions }: Ver
               const hasFiles = ver.downloads && (ver.downloads.mtz || ver.downloads.backup);
               
               return (
-                <div key={idx} className="rounded-xl bg-gray-50 ring-1 ring-gray-200 transition-all dark:bg-gray-900/50 dark:ring-gray-800">
+                <div key={idx} className="group rounded-xl bg-gray-50 shadow-[0_2px_8px_rgba(0,0,0,0.02)] ring-1 ring-gray-200 transition-all duration-300 ease-out hover:shadow-[0_4px_12px_rgba(0,0,0,0.05)] dark:bg-gray-900/50 dark:shadow-[0_2px_8px_rgba(0,0,0,0.2)] dark:ring-gray-800 dark:hover:shadow-[0_4px_16px_rgba(0,0,0,0.4)]">
                   <button
                     onClick={() => toggleVersion(idx)}
-                    className="flex w-full items-center justify-between p-4 text-left focus:outline-none"
+                    className="flex w-full items-center justify-between p-4 text-left focus:outline-none active:bg-gray-200/50 dark:active:bg-gray-800/50 transition-colors duration-200 rounded-xl"
                   >
                     <div className="flex flex-col sm:flex-row sm:items-center sm:gap-4">
                       <span className="font-medium text-gray-900 dark:text-gray-100">v{ver.version}</span>
@@ -118,7 +118,7 @@ export default function VersionHistory({ currentVersion, previousVersions }: Ver
                                 href={ver.downloads.mtz}
                                 target="_blank"
                                 rel="noopener noreferrer"
-                                className="inline-flex flex-1 sm:flex-none items-center justify-center rounded-xl bg-white px-6 py-3 text-sm font-semibold text-gray-900 shadow-sm ring-1 ring-inset ring-gray-200 transition-all duration-200 ease-out active:scale-[0.98] hover:bg-gray-50 dark:bg-white dark:text-gray-900 dark:hover:bg-gray-100"
+                                className="inline-flex flex-1 sm:flex-none items-center justify-center rounded-xl bg-white px-6 py-3 text-sm font-semibold text-gray-900 shadow-[0_2px_8px_rgba(0,0,0,0.04)] dark:shadow-[0_2px_12px_rgba(0,0,0,0.3)] ring-1 ring-inset ring-gray-200 transition-all duration-200 ease-out hover:-translate-y-[1px] hover:shadow-[0_6px_20px_rgba(0,0,0,0.08)] dark:hover:shadow-[0_6px_20px_rgba(0,0,0,0.5)] hover:ring-gray-300 active:translate-y-0 active:scale-[0.97] hover:bg-gray-50 dark:bg-white dark:text-gray-900 dark:hover:bg-gray-100 motion-reduce:transition-none motion-reduce:hover:transform-none"
                               >
                                 Download MTZ
                               </a>
@@ -128,7 +128,7 @@ export default function VersionHistory({ currentVersion, previousVersions }: Ver
                                 href={ver.downloads.backup}
                                 target="_blank"
                                 rel="noopener noreferrer"
-                                className="inline-flex flex-1 sm:flex-none items-center justify-center rounded-xl bg-white px-6 py-3 text-sm font-semibold text-gray-900 shadow-sm ring-1 ring-inset ring-gray-200 transition-all duration-200 ease-out active:scale-[0.98] hover:bg-gray-50 dark:bg-white dark:text-gray-900 dark:hover:bg-gray-100"
+                                className="inline-flex flex-1 sm:flex-none items-center justify-center rounded-xl bg-white px-6 py-3 text-sm font-semibold text-gray-900 shadow-[0_2px_8px_rgba(0,0,0,0.04)] dark:shadow-[0_2px_12px_rgba(0,0,0,0.3)] ring-1 ring-inset ring-gray-200 transition-all duration-200 ease-out hover:-translate-y-[1px] hover:shadow-[0_6px_20px_rgba(0,0,0,0.08)] dark:hover:shadow-[0_6px_20px_rgba(0,0,0,0.5)] hover:ring-gray-300 active:translate-y-0 active:scale-[0.97] hover:bg-gray-50 dark:bg-white dark:text-gray-900 dark:hover:bg-gray-100 motion-reduce:transition-none motion-reduce:hover:transform-none"
                               >
                                 Download Backup
                               </a>

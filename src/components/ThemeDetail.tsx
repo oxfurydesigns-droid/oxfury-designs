@@ -29,7 +29,7 @@ export default function ThemeDetail({ theme }: ThemeDetailProps) {
       {/* Left Column: Main Preview & Screenshots */}
       <div className="flex w-full flex-col gap-8 lg:w-5/12">
         {/* Main Theme Preview */}
-        <div className="relative flex aspect-[6000/4171] w-full max-h-[500px] items-center justify-center overflow-hidden rounded-2xl bg-gray-100 shadow-sm ring-1 ring-gray-200 dark:bg-gray-900 dark:ring-gray-800">
+        <div className="relative flex aspect-[6000/4171] w-full max-h-[500px] items-center justify-center overflow-hidden rounded-2xl bg-gray-100 shadow-[0_2px_8px_rgba(0,0,0,0.04)] ring-1 ring-gray-200 transition-all duration-300 ease-out hover:-translate-y-[2px] hover:shadow-[0_8px_24px_rgba(0,0,0,0.08)] hover:ring-gray-300 dark:bg-gray-900 dark:shadow-[0_4px_16px_rgba(0,0,0,0.4)] dark:ring-gray-800 dark:hover:shadow-[0_8px_30px_rgba(0,0,0,0.6)] dark:hover:ring-gray-700 motion-reduce:transition-none motion-reduce:hover:transform-none">
           <Image
             src={theme.mainPreview}
             alt={`${theme.name} main preview`}

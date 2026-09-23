@@ -18,7 +18,7 @@ export default function ThemeCard({ theme }: ThemeCardProps) {
     : theme.compatibility.join(' • ');
 
   return (
-    <Link href={`/theme/${theme.slug}`} className="group flex flex-col overflow-hidden rounded-[20px] bg-white shadow-sm ring-1 ring-gray-200/60 transition-all duration-300 ease-out hover:shadow-md hover:ring-gray-300 active:scale-[0.98] dark:bg-[#111113] dark:ring-[#1a1b1e] dark:hover:ring-[#2a2b30]">
+    <Link href={`/theme/${theme.slug}`} className="group flex flex-col overflow-hidden rounded-[20px] bg-white shadow-[0_2px_8px_rgba(0,0,0,0.04)] ring-1 ring-gray-200/60 transition-all duration-300 ease-out hover:-translate-y-[2px] hover:shadow-[0_8px_24px_rgba(0,0,0,0.08)] hover:ring-gray-300 active:translate-y-0 active:scale-[0.98] dark:bg-[#111113] dark:shadow-[0_4px_16px_rgba(0,0,0,0.4)] dark:ring-[#1a1b1e] dark:hover:shadow-[0_8px_30px_rgba(0,0,0,0.6)] dark:hover:ring-white/10 motion-reduce:transition-none motion-reduce:hover:transform-none">
       <div className="relative aspect-[6000/4171] w-full overflow-hidden bg-gray-50 dark:bg-[#0a0a0b]">
         <Image
           src={theme.thumbnail}
