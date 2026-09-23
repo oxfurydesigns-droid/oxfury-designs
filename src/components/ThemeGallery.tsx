@@ -101,28 +101,55 @@ export default function ThemeGallery({ screenshots, themeName }: ThemeGalleryPro
       </div>
 
       <div className="flex flex-row gap-3 md:gap-4 h-[60vh] min-h-[400px] md:h-[450px]">
-        {/* Large Main Viewport */}
-        <div className="group relative flex flex-1 h-full items-center justify-center overflow-hidden rounded-2xl bg-gray-100 shadow-sm ring-1 ring-gray-200 transition-all duration-300 dark:bg-gray-900 dark:ring-gray-800">
-          <button
-            onClick={() => openFullscreen(selectedIndex)}
-            className="absolute inset-0 z-0 h-full w-full outline-none"
-            aria-label="Open full screen"
-          >
-            <Image
-              src={currentDisplayImage}
-              alt={`${themeName} screenshot ${selectedIndex + 1}`}
-              fill
-              className="object-contain transition-opacity duration-300"
-              priority
-            />
-          </button>
-
-          {/* Fullscreen indicator icon */}
-          <div className="pointer-events-none absolute right-4 top-4 z-10 rounded-lg bg-black/50 p-2 text-white opacity-0 backdrop-blur-sm transition-opacity duration-200 group-hover:opacity-100">
-            <svg className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 8V4m0 0h4M4 4l5 5m11-1V4m0 0h-4m4 0l-5 5M4 16v4m0 0h4m-4 0l5-5m11 5l-5-5m5 5v-4m0 4h-4" />
-            </svg>
+        {/* Main Viewport Container */}
+        <div className="flex flex-1 flex-row gap-3 md:gap-4 justify-start">
+          {/* First Screenshot */}
+          <div className="group relative flex aspect-[1077/2048] h-full items-center justify-center overflow-hidden rounded-2xl bg-gray-100 shadow-sm ring-1 ring-gray-200 transition-all duration-300 dark:bg-gray-900 dark:ring-gray-800">
+            <button
+              onClick={() => openFullscreen(selectedIndex)}
+              className="absolute inset-0 z-0 h-full w-full outline-none"
+              aria-label="Open full screen"
+            >
+              <Image
+                src={currentDisplayImage}
+                alt={`${themeName} screenshot ${selectedIndex + 1}`}
+                fill
+                className="object-contain transition-opacity duration-300"
+                priority
+              />
+            </button>
+            {/* Fullscreen indicator icon */}
+            <div className="pointer-events-none absolute right-4 top-4 z-10 rounded-lg bg-black/50 p-2 text-white opacity-0 backdrop-blur-sm transition-opacity duration-200 group-hover:opacity-100">
+              <svg className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 8V4m0 0h4M4 4l5 5m11-1V4m0 0h-4m4 0l-5 5M4 16v4m0 0h4m-4 0l5-5m11 5l-5-5m5 5v-4m0 4h-4" />
+              </svg>
+            </div>
           </div>
+
+          {/* Second Screenshot (Desktop Only) */}
+          {screenshots.length > 1 && (
+            <div className="group relative hidden aspect-[1077/2048] h-full items-center justify-center overflow-hidden rounded-2xl bg-gray-100 shadow-sm ring-1 ring-gray-200 transition-all duration-300 dark:bg-gray-900 dark:ring-gray-800 md:flex">
+              <button
+                onClick={() => openFullscreen((selectedIndex + 1) % screenshots.length)}
+                className="absolute inset-0 z-0 h-full w-full outline-none"
+                aria-label="Open full screen"
+              >
+                <Image
+                  src={screenshots[(selectedIndex + 1) % screenshots.length]}
+                  alt={`${themeName} screenshot ${((selectedIndex + 1) % screenshots.length) + 1}`}
+                  fill
+                  className="object-contain transition-opacity duration-300"
+                  priority
+                />
+              </button>
+              {/* Fullscreen indicator icon */}
+              <div className="pointer-events-none absolute right-4 top-4 z-10 rounded-lg bg-black/50 p-2 text-white opacity-0 backdrop-blur-sm transition-opacity duration-200 group-hover:opacity-100">
+                <svg className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 8V4m0 0h4M4 4l5 5m11-1V4m0 0h-4m4 0l-5 5M4 16v4m0 0h4m-4 0l5-5m11 5l-5-5m5 5v-4m0 4h-4" />
+                </svg>
+              </div>
+            </div>
+          )}
         </div>
 
         {/* Thumbnails Section */}
@@ -134,7 +161,7 @@ export default function ThemeGallery({ screenshots, themeName }: ThemeGalleryPro
             <button
               key={idx}
               onClick={() => setSelectedIndex(idx)}
-              className={`relative flex-shrink-0 overflow-hidden rounded-xl bg-gray-200 transition-all dark:bg-gray-800 aspect-[9/16] w-full ${
+              className={`relative flex-shrink-0 overflow-hidden rounded-xl bg-gray-200 transition-all dark:bg-gray-800 aspect-[1077/2048] w-full ${
                 selectedIndex === idx
                   ? "ring-2 ring-blue-500 ring-offset-2 ring-offset-gray-50 opacity-100 dark:ring-blue-400 dark:ring-offset-gray-900/30 scale-95"
                   : "ring-1 ring-gray-200 opacity-60 hover:opacity-100 dark:ring-gray-700"
@@ -227,7 +254,7 @@ export default function ThemeGallery({ screenshots, themeName }: ThemeGalleryPro
                 <button
                   key={idx}
                   onClick={() => openFullscreen(idx)}
-                  className="group relative aspect-[9/16] w-full overflow-hidden rounded-2xl bg-gray-200 shadow-sm ring-1 ring-gray-200 transition-all hover:ring-2 hover:ring-blue-500 dark:bg-gray-800 dark:ring-gray-700 dark:hover:ring-blue-400"
+                  className="group relative aspect-[1077/2048] w-full overflow-hidden rounded-2xl bg-gray-200 shadow-sm ring-1 ring-gray-200 transition-all hover:ring-2 hover:ring-blue-500 dark:bg-gray-800 dark:ring-gray-700 dark:hover:ring-blue-400"
                   aria-label={`Open image ${idx + 1} fullscreen`}
                 >
                   <Image
