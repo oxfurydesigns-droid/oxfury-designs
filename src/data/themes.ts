@@ -66,8 +66,8 @@ const oxG5Base: Theme = {
   ],
   compatibility: ["HyperOS 1", "HyperOS 2", "HyperOS 3"],
   releaseDate: "2024-10-01",
-  thumbnail: "/themes/ox-g5-preview.jpg",
-  mainPreview: "/themes/ox-g5-preview.jpg",
+  thumbnail: "/themes/ox-g5-preview.png",
+  mainPreview: "/themes/ox-g5-preview.png",
   screenshots: [
     "/themes/ox-g5/screenshots/screenshot-01.png",
     "/themes/ox-g5/screenshots/screenshot-02.png",
