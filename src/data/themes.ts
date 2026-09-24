@@ -15,7 +15,7 @@ export interface CurrentThemeDownloads {
 }
 
 export interface PreviousThemeDownloads {
-  mtz?: string;
+  mtz?: MtzLinks | string;
   backup?: string;
 }
 
@@ -31,6 +31,8 @@ export interface PreviousThemeVersion {
   releaseDate: string;
   changelog: string[];
   downloads?: PreviousThemeDownloads;
+  features?: string[];
+  screenshots?: string[];
 }
 
 export interface Theme {
@@ -69,19 +71,19 @@ const oxG5Base: Theme = {
   thumbnail: "/themes/ox-g5-preview.png",
   mainPreview: "/themes/ox-g5-preview.png",
   screenshots: [
-    "/themes/ox-g5/screenshots/screenshot-01.png",
-    "/themes/ox-g5/screenshots/screenshot-02.png",
-    "/themes/ox-g5/screenshots/screenshot-03.png",
-    "/themes/ox-g5/screenshots/screenshot-04.png",
-    "/themes/ox-g5/screenshots/screenshot-05.png",
-    "/themes/ox-g5/screenshots/screenshot-06.png",
-    "/themes/ox-g5/screenshots/screenshot-07.png",
-    "/themes/ox-g5/screenshots/screenshot-08.png"
+    "/themes/ox-g5/screenshots/1.png",
+    "/themes/ox-g5/screenshots/2.png",
+    "/themes/ox-g5/screenshots/3.png",
+    "/themes/ox-g5/screenshots/4.png",
+    "/themes/ox-g5/screenshots/5.png",
+    "/themes/ox-g5/screenshots/6.png",
+    "/themes/ox-g5/screenshots/7.png",
+    "/themes/ox-g5/screenshots/8.png"
   ],
   currentVersion: {
-    version: "1.0.0",
+    version: "2",
     releaseDate: "2024-10-01",
-    changelog: ["Initial release"],
+    changelog: ["Version 2 release"],
     downloads: {
       themeStore: {
         hyperOS3: "https://zhuti.xiaomi.com/detail/3aca30fe-3904-4edb-888f-ccce6fe7fc5c",
@@ -96,11 +98,23 @@ const oxG5Base: Theme = {
   },
   previousVersions: [
     {
-      version: "0.9.0",
+      version: "1",
       releaseDate: "2024-09-15",
       changelog: ["Initial release"],
+      features: [], // Left empty for correct features to be supplied later if needed
+      screenshots: [
+        "/themes/ox-g5/versions/v1/1.png",
+        "/themes/ox-g5/versions/v1/2.png",
+        "/themes/ox-g5/versions/v1/3.png",
+        "/themes/ox-g5/versions/v1/4.png",
+        "/themes/ox-g5/versions/v1/5.png",
+        "/themes/ox-g5/versions/v1/6.png",
+        "/themes/ox-g5/versions/v1/7.png",
+        "/themes/ox-g5/versions/v1/8.png"
+      ],
       downloads: {
-        // mtz and backup left empty/null until provided
+        // MTZ URL to be supplied later
+        mtz: undefined
       }
     }
   ],
