@@ -17,6 +17,8 @@ export default function ThemeGallery({ screenshots, themeName, buttonOnly, butto
   const [isClosingFullscreen, setIsClosingFullscreen] = useState(false);
   const [isViewAllOpen, setIsViewAllOpen] = useState(false);
   const [isClosingViewAll, setIsClosingViewAll] = useState(false);
+  const [prevIndex, setPrevIndex] = useState<number | null>(null);
+  const [direction, setDirection] = useState<number>(1);
   const thumbnailContainerRef = useRef<HTMLDivElement>(null);
 
   // Keyboard navigation for fullscreen and view all
@@ -71,16 +73,23 @@ export default function ThemeGallery({ screenshots, themeName, buttonOnly, butto
   }, [isFullscreen, isViewAllOpen]);
 
   const handleNextLightbox = () => {
+    setPrevIndex(selectedIndex);
+    setDirection(1);
     setSelectedIndex((prev) => (prev + 1) % screenshots.length);
   };
 
   const handlePrevLightbox = () => {
+    setPrevIndex(selectedIndex);
+    setDirection(-1);
     setSelectedIndex((prev) => (prev - 1 + screenshots.length) % screenshots.length);
   };
 
   const openFullscreen = (index?: number) => {
-    if (index !== undefined) setSelectedIndex(index);
+    if (index !== undefined) {
+      setSelectedIndex(index);
+    }
     if (!isFullscreen) {
+      setPrevIndex(null);
       window.history.pushState({ lightbox: true }, "");
       setIsFullscreen(true);
       setIsClosingFullscreen(false);
@@ -299,15 +308,72 @@ export default function ThemeGallery({ screenshots, themeName, buttonOnly, butto
           )}
 
           <div className="relative flex h-full w-full max-w-7xl items-center justify-center p-4 pt-20 pb-6 sm:p-16">
-            <div className={`relative h-full w-full ${isClosingFullscreen ? "animate-zoom-out" : "animate-zoom-in"}`}>
-              <Image
-                key={screenshots[selectedIndex]}
-                src={screenshots[selectedIndex]}
-                alt={`Fullscreen view ${selectedIndex + 1}`}
-                fill
-                className="object-contain"
-                priority
-              />
+            <div className={`relative h-full w-full overflow-hidden ${isClosingFullscreen ? "animate-zoom-out" : "animate-zoom-in"}`}>
+              <style>{`
+                @keyframes slideInRight {
+                  0% { transform: translateX(4rem); opacity: 0; }
+                  100% { transform: translateX(0); opacity: 1; }
+                }
+                @keyframes slideOutLeft {
+                  0% { transform: translateX(0); opacity: 1; }
+                  100% { transform: translateX(-4rem); opacity: 0; }
+                }
+                @keyframes slideInLeft {
+                  0% { transform: translateX(-4rem); opacity: 0; }
+                  100% { transform: translateX(0); opacity: 1; }
+                }
+                @keyframes slideOutRight {
+                  0% { transform: translateX(0); opacity: 1; }
+                  100% { transform: translateX(4rem); opacity: 0; }
+                }
+                .animate-slide-in-right { animation: slideInRight 300ms cubic-bezier(0.22, 1, 0.36, 1) forwards; }
+                .animate-slide-out-left { animation: slideOutLeft 300ms cubic-bezier(0.22, 1, 0.36, 1) forwards; }
+                .animate-slide-in-left { animation: slideInLeft 300ms cubic-bezier(0.22, 1, 0.36, 1) forwards; }
+                .animate-slide-out-right { animation: slideOutRight 300ms cubic-bezier(0.22, 1, 0.36, 1) forwards; }
+                
+                @media (prefers-reduced-motion: reduce) {
+                  .animate-slide-in-right, .animate-slide-out-left, .animate-slide-in-left, .animate-slide-out-right {
+                    animation: none !important;
+                    transform: translateX(0) !important;
+                    opacity: 1 !important;
+                  }
+                  .animate-slide-out-left, .animate-slide-out-right {
+                    opacity: 0 !important;
+                  }
+                }
+              `}</style>
+              
+              {prevIndex !== null && (
+                <div 
+                  key={`out-${prevIndex}-${selectedIndex}`} 
+                  className={`absolute inset-0 w-full h-full ${direction === 1 ? 'animate-slide-out-left' : 'animate-slide-out-right'}`}
+                >
+                  <Image
+                    src={screenshots[prevIndex]}
+                    alt={`Fullscreen view previous`}
+                    fill
+                    className="object-contain"
+                    priority
+                  />
+                </div>
+              )}
+
+              <div 
+                key={`in-${selectedIndex}`} 
+                className={`absolute inset-0 w-full h-full ${
+                  prevIndex !== null 
+                    ? (direction === 1 ? 'animate-slide-in-right' : 'animate-slide-in-left')
+                    : ''
+                }`}
+              >
+                <Image
+                  src={screenshots[selectedIndex]}
+                  alt={`Fullscreen view ${selectedIndex + 1}`}
+                  fill
+                  className="object-contain"
+                  priority
+                />
+              </div>
             </div>
           </div>
         </div>,
