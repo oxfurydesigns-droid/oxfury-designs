@@ -103,14 +103,14 @@ const oxG5Base: Theme = {
       changelog: ["Initial release"],
       features: [], // Left empty for correct features to be supplied later if needed
       screenshots: [
-        "/themes/ox-g5/versions/v1/1.png",
-        "/themes/ox-g5/versions/v1/2.png",
-        "/themes/ox-g5/versions/v1/3.png",
-        "/themes/ox-g5/versions/v1/4.png",
-        "/themes/ox-g5/versions/v1/5.png",
-        "/themes/ox-g5/versions/v1/6.png",
-        "/themes/ox-g5/versions/v1/7.png",
-        "/themes/ox-g5/versions/v1/8.png"
+        "/themes/ox-g5/versions/v1/screenshot-01.png",
+        "/themes/ox-g5/versions/v1/screenshot-02.png",
+        "/themes/ox-g5/versions/v1/screenshot-03.png",
+        "/themes/ox-g5/versions/v1/screenshot-04.png",
+        "/themes/ox-g5/versions/v1/screenshot-05.png",
+        "/themes/ox-g5/versions/v1/screenshot-06.png",
+        "/themes/ox-g5/versions/v1/screenshot-07.png",
+        "/themes/ox-g5/versions/v1/screenshot-08.png"
       ],
       downloads: {
         // MTZ URL to be supplied later
