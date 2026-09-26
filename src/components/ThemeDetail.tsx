@@ -98,7 +98,7 @@ export default function ThemeDetail({ theme }: ThemeDetailProps) {
         )}
 
         <div className="mt-12 lg:mt-20">
-          <AdBanner />
+          <AdBanner zoneId="center" />
         </div>
 
         <div className="mt-12 lg:mt-16">

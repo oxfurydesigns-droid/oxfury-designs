@@ -6,7 +6,7 @@ export default function AdBanner({ zoneId }: { zoneId?: string }) {
   const containerRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
-    if ((zoneId === '7454221' || zoneId === 'bottom') && containerRef.current) {
+    if ((zoneId === '7454221' || zoneId === 'bottom' || zoneId === 'center') && containerRef.current) {
       // Clear container to prevent duplicate injections on re-mounts (React Strict Mode)
       containerRef.current.innerHTML = '';
       
@@ -35,6 +35,17 @@ s.async = true;
 s.referrerPolicy = 'no-referrer-when-downgrade';
 l.parentNode.insertBefore(s, l);
 })({})`;
+      } else if (zoneId === 'center') {
+        script.innerHTML = `(function(xualk){
+var d = document,
+    s = d.createElement('script'),
+    l = d.currentScript || d.scripts[d.scripts.length - 1];
+s.settings = xualk || {};
+s.src = "\\/\\/peacefulbicycle.com\\/b.XMVzsXd\\/GMll0RYaW\\/cz\\/yeemk9bukZEU\\/lekLPLTMcK0cNujLIHyQNQDpUStfNKztQT2\\/MojFIM0KO_QA";
+s.async = true;
+s.referrerPolicy = 'no-referrer-when-downgrade';
+l.parentNode.insertBefore(s, l);
+})({})`;
       }
 
       // Temporarily mock document.currentScript so the ad network accurately finds this container
@@ -54,7 +65,7 @@ l.parentNode.insertBefore(s, l);
 
   return (
     <div className="my-8 flex w-full flex-col items-center justify-center rounded-xl bg-gray-50 p-4 ring-1 ring-inset ring-gray-200 dark:bg-gray-800/50 dark:ring-gray-700 overflow-hidden min-h-[120px]">
-      {(zoneId === '7454221' || zoneId === 'bottom') ? (
+      {(zoneId === '7454221' || zoneId === 'bottom' || zoneId === 'center') ? (
         <div ref={containerRef} className="w-full flex justify-center relative z-10"></div>
 
       ) : (
