@@ -8,7 +8,7 @@ export default function ThemeDownloads({ downloads }: ThemeDownloadsProps) {
   const hasThemeStoreLinks = downloads.themeStore && (downloads.themeStore.hyperOS3 || downloads.themeStore.hyperOS12);
   const hasFiles = (downloads.mtz && (downloads.mtz.hyperOS3 || downloads.mtz.hyperOS12)) || downloads.backup;
 
-  if (!hasThemeStoreLinks && !hasFiles) {
+  if (!hasThemeStoreLinks && !hasFiles && !downloads.telegram) {
     return null;
   }
 
@@ -100,6 +100,25 @@ export default function ThemeDownloads({ downloads }: ThemeDownloadsProps) {
                 </div>
               </div>
             )}
+          </div>
+        )}
+        
+        {/* Telegram Section */}
+        {downloads.telegram && (
+          <div className="flex flex-col mt-2">
+            <h3 className="mb-2 text-xs font-semibold uppercase tracking-wider text-gray-500 dark:text-gray-400">
+              Community
+            </h3>
+            <div className="flex flex-row flex-wrap gap-3">
+              <a
+                href={downloads.telegram}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex flex-1 sm:flex-none items-center justify-center rounded-xl bg-[#2AABEE] px-6 py-3 text-sm font-semibold text-white shadow-[0_2px_8px_rgba(42,171,238,0.3)] transition-all duration-200 ease-out hover:-translate-y-[1px] hover:shadow-[0_6px_20px_rgba(42,171,238,0.4)] active:translate-y-0 active:scale-[0.97] hover:bg-[#2298D6] motion-reduce:transition-none motion-reduce:hover:transform-none"
+              >
+                Join Telegram
+              </a>
+            </div>
           </div>
         )}
       </div>
