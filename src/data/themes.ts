@@ -91,14 +91,14 @@ const oxG5Base: Theme = {
     changelog: ["Version 2 release"],
     downloads: {
       themeStore: {
-        hyperOS3: "https://zhuti.xiaomi.com/detail/3aca30fe-3904-4edb-888f-ccce6fe7fc5c",
-        hyperOS12: "https://zhuti.xiaomi.com/detail/b190f4f4-ec97-457d-8354-3a43c33fcd75"
+        hyperOS3: "",
+        hyperOS12: "theme://zhuti.xiaomi.com/detail/e01391df-55dc-4d32-87ad-85eb30396ebc"
       },
       mtz: {
-        hyperOS3: "https://filespay.uk/0r3nqofj7xax",
-        hyperOS12: "https://filespay.uk/ij8l9mgh1hhr"
+        hyperOS3: "https://filespay.org/tos6ooht09aw",
+        hyperOS12: "https://filespay.org/ai73bbcs9wti"
       },
-      backup: "https://filespay.uk/211gvxgkporm"
+      backup: ""
     }
   },
   previousVersions: [
