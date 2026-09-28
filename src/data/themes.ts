@@ -52,6 +52,7 @@ export interface Theme {
   previousVersions: PreviousThemeVersion[];
   category: string;
   popularity: number;
+  archived?: boolean;
 }
 
 const oxG5Base: Theme = {
@@ -72,7 +73,7 @@ const oxG5Base: Theme = {
     "Lock screen options for Gravity Sensor, Shuffled Icons and Depth Effect"
   ],
   compatibility: ["HyperOS 1", "HyperOS 2", "HyperOS 3"],
-  releaseDate: "2024-10-01",
+  releaseDate: "2026-09-28",
   thumbnail: "/themes/ox-g5-preview.png",
   mainPreview: "/themes/ox-g5-preview.png",
   screenshots: [
@@ -87,18 +88,18 @@ const oxG5Base: Theme = {
   ],
   currentVersion: {
     version: "2",
-    releaseDate: "2024-10-01",
+    releaseDate: "2026-09-28",
     changelog: ["Version 2 release"],
     downloads: {
       themeStore: {
-        hyperOS3: "",
+        hyperOS3: "theme://zhuti.xiaomi.com/detail/3aca30fe-3904-4edb-888f-ccce6fe7fc5c",
         hyperOS12: "theme://zhuti.xiaomi.com/detail/e01391df-55dc-4d32-87ad-85eb30396ebc"
       },
       mtz: {
         hyperOS3: "https://filespay.org/tos6ooht09aw",
         hyperOS12: "https://filespay.org/ai73bbcs9wti"
       },
-      backup: ""
+      backup: "https://filespay.us/lyn7ukz4q0gv"
     }
   },
   previousVersions: [
@@ -375,3 +376,7 @@ export function getThemeBySlug(slug: string): Theme | undefined {
 export function getThemesByCategory(category: string): Theme[] {
   return themes;
 }
+
+export const latestThemeId = themes
+  .filter((t) => !t.archived)
+  .sort((a, b) => new Date(b.releaseDate).getTime() - new Date(a.releaseDate).getTime())[0]?.id;

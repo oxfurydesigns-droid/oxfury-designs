@@ -26,7 +26,7 @@ export default function ThemeDownloads({ downloads }: ThemeDownloadsProps) {
               Theme Store Link
             </h3>
             <div className="flex flex-row flex-wrap gap-3">
-              {downloads.themeStore!.hyperOS3 && (
+              {downloads.themeStore!.hyperOS3 ? (
                 <a
                   href={downloads.themeStore!.hyperOS3}
                   target="_blank"
@@ -35,8 +35,12 @@ export default function ThemeDownloads({ downloads }: ThemeDownloadsProps) {
                 >
                   HyperOS 3
                 </a>
+              ) : (
+                <span className="inline-flex flex-1 sm:flex-none items-center justify-center rounded-xl bg-black px-6 py-3 text-sm font-semibold text-white dark:bg-white dark:text-black opacity-50 cursor-not-allowed">
+                  HyperOS 3
+                </span>
               )}
-              {downloads.themeStore!.hyperOS12 && (
+              {downloads.themeStore!.hyperOS12 ? (
                 <a
                   href={downloads.themeStore!.hyperOS12}
                   target="_blank"
@@ -45,6 +49,10 @@ export default function ThemeDownloads({ downloads }: ThemeDownloadsProps) {
                 >
                   HyperOS 1 & 2
                 </a>
+              ) : (
+                <span className="inline-flex flex-1 sm:flex-none items-center justify-center rounded-xl bg-black px-6 py-3 text-sm font-semibold text-white dark:bg-white dark:text-black opacity-50 cursor-not-allowed">
+                  HyperOS 1 & 2
+                </span>
               )}
             </div>
           </div>
@@ -59,16 +67,6 @@ export default function ThemeDownloads({ downloads }: ThemeDownloadsProps) {
                   MTZ File
                 </h3>
                 <div className="flex flex-row flex-wrap gap-3">
-                  {downloads.mtz.hyperOS12 && (
-                    <a
-                      href={downloads.mtz.hyperOS12}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="inline-flex flex-1 sm:flex-none items-center justify-center rounded-xl bg-black px-4 sm:px-6 py-3 text-xs sm:text-sm font-semibold text-white whitespace-nowrap shadow-[0_2px_8px_rgba(0,0,0,0.1)] dark:shadow-[0_2px_12px_rgba(255,255,255,0.1)] transition-all duration-200 ease-out hover:-translate-y-[1px] hover:shadow-[0_6px_20px_rgba(0,0,0,0.15)] dark:hover:shadow-[0_6px_24px_rgba(255,255,255,0.2)] active:translate-y-0 active:scale-[0.97] hover:bg-gray-800 dark:bg-white dark:text-black dark:hover:bg-gray-200 motion-reduce:transition-none motion-reduce:hover:transform-none"
-                    >
-                      HyperOS 1 & 2
-                    </a>
-                  )}
                   {downloads.mtz.hyperOS3 && (
                     <a
                       href={downloads.mtz.hyperOS3}
@@ -79,16 +77,26 @@ export default function ThemeDownloads({ downloads }: ThemeDownloadsProps) {
                       HyperOS 3
                     </a>
                   )}
+                  {downloads.mtz.hyperOS12 && (
+                    <a
+                      href={downloads.mtz.hyperOS12}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-flex flex-1 sm:flex-none items-center justify-center rounded-xl bg-black px-4 sm:px-6 py-3 text-xs sm:text-sm font-semibold text-white whitespace-nowrap shadow-[0_2px_8px_rgba(0,0,0,0.1)] dark:shadow-[0_2px_12px_rgba(255,255,255,0.1)] transition-all duration-200 ease-out hover:-translate-y-[1px] hover:shadow-[0_6px_20px_rgba(0,0,0,0.15)] dark:hover:shadow-[0_6px_24px_rgba(255,255,255,0.2)] active:translate-y-0 active:scale-[0.97] hover:bg-gray-800 dark:bg-white dark:text-black dark:hover:bg-gray-200 motion-reduce:transition-none motion-reduce:hover:transform-none"
+                    >
+                      HyperOS 1 & 2
+                    </a>
+                  )}
                 </div>
               </div>
             )}
             
-            {downloads.backup && (
-              <div className="flex flex-col">
-                <h3 className="mb-2 text-xs font-semibold uppercase tracking-wider text-gray-500 dark:text-gray-400">
-                  Backup File
-                </h3>
-                <div className="flex flex-row flex-wrap gap-3">
+            <div className="flex flex-col">
+              <h3 className="mb-2 text-xs font-semibold uppercase tracking-wider text-gray-500 dark:text-gray-400">
+                Backup File
+              </h3>
+              <div className="flex flex-row flex-wrap gap-3">
+                {downloads.backup ? (
                   <a
                     href={downloads.backup}
                     target="_blank"
@@ -97,9 +105,13 @@ export default function ThemeDownloads({ downloads }: ThemeDownloadsProps) {
                   >
                     Download Backup File
                   </a>
-                </div>
+                ) : (
+                  <span className="inline-flex flex-1 sm:flex-none items-center justify-center rounded-xl bg-black px-6 py-3 text-sm font-semibold text-white dark:bg-white dark:text-black opacity-50 cursor-not-allowed">
+                    Download Backup File
+                  </span>
+                )}
               </div>
-            )}
+            </div>
           </div>
         )}
         

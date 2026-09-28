@@ -1,0 +1,66 @@
+Theme Name:
+OX M1
+
+Version:
+1
+
+Compatibility:
+HyperOS 1, 2, 3
+
+Release Date:
+September 14,2026
+
+
+Description:
+
+OX M1 is a clean, glass-style HyperOS theme with the lock screen as its main feature. It focuses on a large clock, translucent UI elements, multiple customization options, and a minimal overall design.
+
+The lock screen includes multiple clock styles, different date formats, color options, different widgets, and 12 wallpapers to choose from. It also supports depth effects and a gravity sensor for a more interactive lock screen experience. The wallpaper selection panel and customization controls are integrated into the same glass-style interface.
+
+The control center follows the same design with translucent glass panels, rounded controls, and a clean layout. The home screen uses a large clock and matching system elements to keep the overall appearance consistent.
+
+The icon pack uses rounded-square icons with a clean shape and multiple color styles that match the theme's minimal interface.
+
+
+Features:
+
+1. Custom lock screen with a large clock design
+2. Multiple lock screen clock styles
+3. Different date and date-format options
+4. Multiple lock screen widgets
+5. 12 built-in wallpapers to choose from
+6. Custom lock screen color options
+7. Depth effect support
+8. Gravity sensor support for the lock screen
+9. Glass-style lock screen interface with translucent panels
+10. Built-in wallpaper selection panel
+11. Custom lock screen controls and interactive elements
+12. Glass-style redesigned Control Center
+13. Clean and minimal Control Center layout
+14. Large clock design for the home screen
+15. Rounded-square custom icon design
+16. Multiple icon color styles
+17. Consistent glass and translucent design across the system UI
+
+
+Downloads:
+
+Theme Store:
+  HyperOS 3: theme://zhuti.xiaomi.com/detail/4806f90e-a659-48a0-a0d6-4172192b4137
+  HyperOS 1 & 2: theme://zhuti.xiaomi.com/detail/0e6aefc3-08e1-47d9-8be0-bd879ed00764
+
+MTZ:
+  HyperOS 3: https://filespay.uk/86clcl2gikmu
+  HyperOS 1 & 2: https://filespay.uk/j3nra1ftcep8
+
+Backup:
+  https://filespay.uk/mgpq9av2wmy9
+
+Telegram:
+  https://t.me/englishthemesoxfury
+
+
+Version History:
+
+Version 1
+- Initial release

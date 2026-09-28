@@ -8,8 +8,10 @@ import { themes } from "@/data/themes";
 export default function Home() {
   const [activeTab, setActiveTab] = useState<Tab>(TABS[0]);
 
-  // Filter themes based on the active tab
-  const filteredThemes = themes.filter((theme) => theme.category === activeTab);
+  // Filter themes based on the active tab and sort them by newest release date first
+  const filteredThemes = themes
+    .filter((theme) => theme.category === activeTab)
+    .sort((a, b) => new Date(b.releaseDate).getTime() - new Date(a.releaseDate).getTime());
 
   return (
     <div className="container mx-auto px-4 py-6 md:py-10">

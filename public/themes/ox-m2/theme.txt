@@ -1,0 +1,72 @@
+Theme Name:
+OX M2
+
+Version:
+1
+
+Compatibility:
+HyperOS 1, 2, 3
+Release Date:
+September 11,2026
+
+
+Description:
+
+OX M2 is a glass-style HyperOS theme focused on customization, especially the lock screen and home screen. It uses rounded elements, translucent panels, large clocks, customizable widgets, and colorful system icons.
+
+The lock screen has multiple built-in wallpapers and several customization options. You can change the clock style, date format, colors, widgets, wallpaper effects, and other lock screen settings. It also supports depth effects, gravity effects, wallpaper blur, dark overlay, and other visual options.
+
+The home screen uses rounded circular icons with different color styles and a large collection of customizable clock and information widgets. The main glass-style widget has multiple faces and can display different types of information.
+
+The Control Center has been redesigned with an 8-tile layout and translucent controls, while keeping the same clean style as the rest of the theme.
+
+
+Features:
+
+1. Customizable lock screen with multiple built-in wallpapers
+2. 18 built-in wallpapers to choose from
+3. Multiple lock screen wallpaper effects
+4. Depth-of-field effect
+5. Gravity wallpaper effect
+6. Wallpaper blur option
+7. Wallpaper darkening and dark overlay controls
+8. 8 different clock styles
+9. Fully customizable lock screen clock
+10. Adjustable clock height and opacity
+11. Multiple clock color options
+12. Multiple date formats and date styles
+13. Adjustable date opacity and color
+14. Multiple customizable lock screen widgets
+15. Customizable widget position
+16. Large collection of widget styles
+17. Glass-style home screen widgets
+18. Multiple widget faces and layouts
+19. Small built-in games and additional interactive elements
+20. Rounded circular custom icons
+21. Multiple icon color styles
+22. Redesigned Control Center with 8 large tiles
+23. Translucent and glass-style Control Center
+24. Matching visual style across the lock screen, home screen, widgets, and system UI
+
+
+Downloads:
+
+Theme Store:
+  HyperOS 3: theme://zhuti.xiaomi.com/detail/bbbb789f-b3ce-45bb-bae9-1b7319755dbe
+  HyperOS 1 & 2: theme://zhuti.xiaomi.com/detail/5a34098c-508e-4c6b-80e4-78defd92b25d
+
+MTZ:
+  HyperOS 3: https://filespay.vip/zse2f29ttnwf
+  HyperOS 1 & 2: https://filespay.vip/0zbuoyut4wp7
+
+Backup:
+  https://filespay.vip/xwzvgf88hqg6
+
+Telegram:
+  https://t.me/englishthemesoxfury
+
+
+Version History:
+
+Version 1
+- Initial release

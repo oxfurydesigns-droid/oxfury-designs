@@ -15,9 +15,13 @@ export default function ThemeDetail({ theme }: ThemeDetailProps) {
   const versions = theme.compatibility
     .map(c => c.replace(osPrefix, "").trim())
     .filter(Boolean);
-  const formattedCompatibility = versions.length > 0 
+  let formattedCompatibility = versions.length > 0 
     ? `${osPrefix} ${versions.join(', ')}`
     : theme.compatibility.join(', ');
+
+  if (theme.slug === 'ox-clay') {
+    formattedCompatibility = "HyperOS 3 Available • HyperOS 1 & 2 Coming Soon";
+  }
 
   const releaseDateFormatted = new Date(theme.releaseDate).toLocaleDateString("en-US", {
     month: "long",

@@ -1,0 +1,62 @@
+Theme Name:
+OX G4
+
+Version:
+1
+
+Compatibility:
+HyperOS 1, 2, 3
+
+Release Date:
+September 4,2026
+
+
+Description:
+
+OX G4 is a glass-style HyperOS theme built around a liquid glass look across the lock screen, home screen, widgets, and Control Center.
+
+The lock screen is the main highlight, featuring a large liquid glass clock with a transparent and glossy appearance. The wallpaper can also be customized with different visual effects, and the theme includes four wallpaper options. Notifications use a stacked glass-style layout, with additional lock screen widgets and customizable elements.
+
+The home screen includes a detailed glass-style clock and weather widget that displays time, weather, and forecast information in a clean layout. The icons use a glossy glass appearance that matches the overall design.
+
+The Control Center has been redesigned with 8 large tiles and translucent glass elements, along with different color accents for active controls.
+
+
+Features:
+
+1. Liquid glass lock screen clock
+2. Glossy and transparent clock design
+3. Four built-in lock screen wallpaper options
+4. Customizable wallpaper effects
+5. Stacked glass-style notifications
+6. Customizable lock screen elements and widgets
+7. Detailed clock and weather home screen widget
+8. Weather and forecast information in the widget
+9. Glossy glass-style app icons
+10. Redesigned 8-tile Control Center
+11. Translucent glass-style Control Center
+12. Color accents for active controls
+13. Matching glass design across the system UI
+
+
+Downloads:
+
+Theme Store:
+  HyperOS 3: theme://zhuti.xiaomi.com/detail/81d368a5-c405-462e-ac82-943ab985514e
+  HyperOS 1 & 2: theme://zhuti.xiaomi.com/detail/debd297d-126c-48f9-a943-d0918175a6ab
+
+MTZ:
+  HyperOS 3: https://filespay.org/ddfvbf2d7b2j
+  HyperOS 1 & 2: https://filespay.org/ddfvbf2d7b2j
+
+Backup:
+  https://filespay.uk/gjrmv9uav74n
+
+Telegram:
+  https://t.me/englishthemesoxfury
+
+
+Version History:
+
+Version 1
+- Initial release
