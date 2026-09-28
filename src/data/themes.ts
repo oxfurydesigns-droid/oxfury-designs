@@ -92,7 +92,7 @@ const oxG5Base: Theme = {
     changelog: ["Version 2 release"],
     downloads: {
       themeStore: {
-        hyperOS3: "theme://zhuti.xiaomi.com/detail/3aca30fe-3904-4edb-888f-ccce6fe7fc5c",
+        hyperOS3: "theme://zhuti.xiaomi.com/detail/e01391df-55dc-4d32-87ad-85eb30396ebc",
         hyperOS12: "theme://zhuti.xiaomi.com/detail/e01391df-55dc-4d32-87ad-85eb30396ebc"
       },
       mtz: {
