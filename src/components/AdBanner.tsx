@@ -11,22 +11,41 @@ export default function AdBanner({ zoneId }: { zoneId?: string }) {
       containerRef.current.innerHTML = '';
       
       const script = document.createElement('script');
-      
       const optionsScript = document.createElement('script');
       optionsScript.type = 'text/javascript';
+
+      let key = '';
+      let format = 'iframe';
+      let height = 0;
+      let width = 0;
+
+      if (zoneId === '7454221') {
+        key = 'f1c43d20938c1a8513dd53d712fe46cd';
+        height = 90;
+        width = 728;
+      } else if (zoneId === 'center') {
+        key = '549031fcae7f15239868de0ae455f91c';
+        height = 250;
+        width = 300;
+      } else if (zoneId === 'bottom') {
+        key = '54ffeaa80d10c9ad9e3b3fa73336ceab';
+        height = 50;
+        width = 320;
+      }
+
       optionsScript.innerHTML = `
         atOptions = {
-          'key' : '549031fcae7f15239868de0ae455f91c',
-          'format' : 'iframe',
-          'height' : 250,
-          'width' : 300,
+          'key' : '${key}',
+          'format' : '${format}',
+          'height' : ${height},
+          'width' : ${width},
           'params' : {}
         };
       `;
       containerRef.current.appendChild(optionsScript);
 
       script.type = 'text/javascript';
-      script.src = "https://www.highrevenueformat.com/549031fcae7f15239868de0ae455f91c/invoke.js";
+      script.src = `https://www.highrevenueformat.com/${key}/invoke.js`;
 
       // Temporarily mock document.currentScript so the ad network accurately finds this container
       // This is necessary because dynamic client-side insertions usually result in currentScript being null
@@ -45,10 +64,19 @@ export default function AdBanner({ zoneId }: { zoneId?: string }) {
 
   const isActiveZone = zoneId === '7454221' || zoneId === 'bottom' || zoneId === 'center';
 
+  let containerClasses = 'min-h-[120px]';
+  if (zoneId === '7454221') {
+    containerClasses = 'min-h-[122px] w-full max-w-[760px] mx-auto';
+  } else if (zoneId === 'center') {
+    containerClasses = 'min-h-[282px] w-full max-w-[332px] mx-auto';
+  } else if (zoneId === 'bottom') {
+    containerClasses = 'min-h-[82px] w-full max-w-[352px] mx-auto';
+  }
+
   return (
-    <div className={`my-8 flex w-full flex-col items-center justify-center rounded-xl bg-gray-50 p-4 ring-1 ring-inset ring-gray-200 dark:bg-gray-800/50 dark:ring-gray-700 overflow-hidden ${isActiveZone ? 'min-h-[282px] w-full max-w-[332px] mx-auto' : 'min-h-[120px]'}`}>
+    <div className={`my-8 flex w-full flex-col items-center justify-center rounded-xl bg-gray-50 p-4 ring-1 ring-inset ring-gray-200 dark:bg-gray-800/50 dark:ring-gray-700 overflow-hidden ${containerClasses}`}>
       {isActiveZone ? (
-        <div ref={containerRef} className="w-full flex justify-center relative z-10"></div>
+        <div ref={containerRef} className="w-full flex justify-center relative z-10 overflow-hidden"></div>
       ) : (
         <>
           <p className="text-sm font-medium text-gray-400 dark:text-gray-500">Advertisement Placeholder</p>
