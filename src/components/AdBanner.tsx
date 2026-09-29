@@ -12,46 +12,21 @@ export default function AdBanner({ zoneId }: { zoneId?: string }) {
       
       const script = document.createElement('script');
       
-      if (zoneId === '7454221') {
-        // Assign the exact HilltopAds script without modification
-        script.innerHTML = `(function(ddaf){
-var d = document,
-    s = d.createElement('script'),
-    l = d.currentScript || d.scripts[d.scripts.length - 1];
-s.settings = ddaf || {};
-s.src = "\\/\\/peacefulbicycle.com\\/biX.VqsBdgGJl_0WY\\/WWc-\\/TebmR9kunZXUOlYk\\/PcTPcw0tN_THQnyPMKj\\/EhtVN\\/zwQL1wNpD\\/IWyoNTQF";
-s.async = true;
-s.referrerPolicy = 'no-referrer-when-downgrade';
-l.parentNode.insertBefore(s, l);
-})({})`;
-      } else if (zoneId === 'bottom') {
-        script.innerHTML = `(function(zmri){
-var d = document,
-    s = d.createElement('script'),
-    l = d.currentScript || d.scripts[d.scripts.length - 1];
-s.settings = zmri || {};
-s.src = "\\/\\/peacefulbicycle.com\\/bSX.VPsAdLG\\/lp0bYAW\\/cK\\/EeqmR9\\/u-ZiUnlJkqPgTdc\\/0TN\\/T\\/QGz\\/OiDwkDtYNEz\\/QJ1\\/NkDnMj5SMZwW";
-s.async = true;
-s.referrerPolicy = 'no-referrer-when-downgrade';
-l.parentNode.insertBefore(s, l);
-})({})`;
-      } else if (zoneId === 'center') {
-        const optionsScript = document.createElement('script');
-        optionsScript.type = 'text/javascript';
-        optionsScript.innerHTML = `
-          atOptions = {
-            'key' : '549031fcae7f15239868de0ae455f91c',
-            'format' : 'iframe',
-            'height' : 250,
-            'width' : 300,
-            'params' : {}
-          };
-        `;
-        containerRef.current.appendChild(optionsScript);
+      const optionsScript = document.createElement('script');
+      optionsScript.type = 'text/javascript';
+      optionsScript.innerHTML = `
+        atOptions = {
+          'key' : '549031fcae7f15239868de0ae455f91c',
+          'format' : 'iframe',
+          'height' : 250,
+          'width' : 300,
+          'params' : {}
+        };
+      `;
+      containerRef.current.appendChild(optionsScript);
 
-        script.type = 'text/javascript';
-        script.src = "https://www.highrevenueformat.com/549031fcae7f15239868de0ae455f91c/invoke.js";
-      }
+      script.type = 'text/javascript';
+      script.src = "https://www.highrevenueformat.com/549031fcae7f15239868de0ae455f91c/invoke.js";
 
       // Temporarily mock document.currentScript so the ad network accurately finds this container
       // This is necessary because dynamic client-side insertions usually result in currentScript being null
@@ -68,11 +43,12 @@ l.parentNode.insertBefore(s, l);
     }
   }, [zoneId]);
 
-  return (
-    <div className={`my-8 flex w-full flex-col items-center justify-center rounded-xl bg-gray-50 p-4 ring-1 ring-inset ring-gray-200 dark:bg-gray-800/50 dark:ring-gray-700 overflow-hidden ${zoneId === 'center' ? 'min-h-[282px] w-full max-w-[332px] mx-auto' : 'min-h-[120px]'}`}>
-      {(zoneId === '7454221' || zoneId === 'bottom' || zoneId === 'center') ? (
-        <div ref={containerRef} className="w-full flex justify-center relative z-10"></div>
+  const isActiveZone = zoneId === '7454221' || zoneId === 'bottom' || zoneId === 'center';
 
+  return (
+    <div className={`my-8 flex w-full flex-col items-center justify-center rounded-xl bg-gray-50 p-4 ring-1 ring-inset ring-gray-200 dark:bg-gray-800/50 dark:ring-gray-700 overflow-hidden ${isActiveZone ? 'min-h-[282px] w-full max-w-[332px] mx-auto' : 'min-h-[120px]'}`}>
+      {isActiveZone ? (
+        <div ref={containerRef} className="w-full flex justify-center relative z-10"></div>
       ) : (
         <>
           <p className="text-sm font-medium text-gray-400 dark:text-gray-500">Advertisement Placeholder</p>
