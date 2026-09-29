@@ -36,16 +36,21 @@ s.referrerPolicy = 'no-referrer-when-downgrade';
 l.parentNode.insertBefore(s, l);
 })({})`;
       } else if (zoneId === 'center') {
-        script.innerHTML = `(function(xualk){
-var d = document,
-    s = d.createElement('script'),
-    l = d.currentScript || d.scripts[d.scripts.length - 1];
-s.settings = xualk || {};
-s.src = "\\/\\/peacefulbicycle.com\\/b.XMVzsXd\\/GMll0RYaW\\/cz\\/yeemk9bukZEU\\/lekLPLTMcK0cNujLIHyQNQDpUStfNKztQT2\\/MojFIM0KO_QA";
-s.async = true;
-s.referrerPolicy = 'no-referrer-when-downgrade';
-l.parentNode.insertBefore(s, l);
-})({})`;
+        const optionsScript = document.createElement('script');
+        optionsScript.type = 'text/javascript';
+        optionsScript.innerHTML = `
+          atOptions = {
+            'key' : '549031fcae7f15239868de0ae455f91c',
+            'format' : 'iframe',
+            'height' : 250,
+            'width' : 300,
+            'params' : {}
+          };
+        `;
+        containerRef.current.appendChild(optionsScript);
+
+        script.type = 'text/javascript';
+        script.src = "https://www.highrevenueformat.com/549031fcae7f15239868de0ae455f91c/invoke.js";
       }
 
       // Temporarily mock document.currentScript so the ad network accurately finds this container
@@ -64,7 +69,7 @@ l.parentNode.insertBefore(s, l);
   }, [zoneId]);
 
   return (
-    <div className="my-8 flex w-full flex-col items-center justify-center rounded-xl bg-gray-50 p-4 ring-1 ring-inset ring-gray-200 dark:bg-gray-800/50 dark:ring-gray-700 overflow-hidden min-h-[120px]">
+    <div className={`my-8 flex w-full flex-col items-center justify-center rounded-xl bg-gray-50 p-4 ring-1 ring-inset ring-gray-200 dark:bg-gray-800/50 dark:ring-gray-700 overflow-hidden ${zoneId === 'center' ? 'min-h-[282px] w-full max-w-[332px] mx-auto' : 'min-h-[120px]'}`}>
       {(zoneId === '7454221' || zoneId === 'bottom' || zoneId === 'center') ? (
         <div ref={containerRef} className="w-full flex justify-center relative z-10"></div>
 
