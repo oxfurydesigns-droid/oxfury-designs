@@ -13,6 +13,7 @@ const geistMono = Geist_Mono({
 });
 
 import Header from "@/components/Header";
+import Script from "next/script";
 
 export const metadata: Metadata = {
   title: "OXFURY DESIGNS",
@@ -39,6 +40,7 @@ export default function RootLayout({
         <Header />
         <main className="flex-1">{children}</main>
         <Footer />
+        <Script src="https://pl31561869.profitableratecpmnetwork.com/65/97/b1/6597b1bc94996db36b4ff3a8ba5f8e78.js" strategy="afterInteractive" />
       </body>
     </html>
   );
