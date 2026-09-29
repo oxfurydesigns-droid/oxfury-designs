@@ -10,12 +10,7 @@ export default function AdBanner({ zoneId }: { zoneId?: string }) {
       // Clear container to prevent duplicate injections on re-mounts (React Strict Mode)
       containerRef.current.innerHTML = '';
       
-      const script = document.createElement('script');
-      const optionsScript = document.createElement('script');
-      optionsScript.type = 'text/javascript';
-
       let key = '';
-      let format = 'iframe';
       let height = 0;
       let width = 0;
 
@@ -33,32 +28,44 @@ export default function AdBanner({ zoneId }: { zoneId?: string }) {
         width = 320;
       }
 
-      optionsScript.innerHTML = `
-        atOptions = {
-          'key' : '${key}',
-          'format' : '${format}',
-          'height' : ${height},
-          'width' : ${width},
-          'params' : {}
-        };
-      `;
-      containerRef.current.appendChild(optionsScript);
+      const iframe = document.createElement('iframe');
+      iframe.width = width.toString();
+      iframe.height = height.toString();
+      iframe.frameBorder = "0";
+      iframe.scrolling = "no";
+      iframe.style.border = "none";
+      iframe.style.overflow = "hidden";
+      iframe.style.width = width + "px";
+      iframe.style.height = height + "px";
+      iframe.style.maxWidth = "100%";
+      
+      containerRef.current.appendChild(iframe);
 
-      script.type = 'text/javascript';
-      script.src = `https://www.highrevenueformat.com/${key}/invoke.js`;
-
-      // Temporarily mock document.currentScript so the ad network accurately finds this container
-      // This is necessary because dynamic client-side insertions usually result in currentScript being null
-      Object.defineProperty(document, 'currentScript', {
-        value: script,
-        configurable: true,
-      });
-
-      // Synchronously appends and executes the inline script
-      containerRef.current.appendChild(script);
-
-      // Clean up the mock immediately after execution
-      delete (document as any).currentScript;
+      const iframeDoc = iframe.contentWindow?.document || iframe.contentDocument;
+      if (iframeDoc) {
+        iframeDoc.open();
+        iframeDoc.write(`
+          <!DOCTYPE html>
+          <html>
+            <head>
+              <style>body { margin: 0; padding: 0; overflow: hidden; background: transparent; text-align: center; }</style>
+            </head>
+            <body>
+              <script>
+                atOptions = {
+                  'key' : '${key}',
+                  'format' : 'iframe',
+                  'height' : ${height},
+                  'width' : ${width},
+                  'params' : {}
+                };
+              </script>
+              <script src="https://www.highrevenueformat.com/${key}/invoke.js"></script>
+            </body>
+          </html>
+        `);
+        iframeDoc.close();
+      }
     }
   }, [zoneId]);
 
